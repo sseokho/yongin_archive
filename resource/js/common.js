@@ -8,149 +8,114 @@ fetch("../../include/header.html")
         document.querySelector(".header").innerHTML = data;
         isHeaderLoaded = true; // header 로드 완료 표시
         initHeader();
+        sideMenu();
     });
 // 헤더 관련
 function initHeader() {
-    $(document).ready(function () {
-        // a와 b 선택
-        const $aItems = $('.navigation.depth_1 > li');
-        const $bItems = $('.depth_2');
 
-        // 배경 요소 및 header 선택
-        const $bgElement = $('.bg');
-        const $headerElement = $('.header'); // header 요소 선택
-        const $containerElement = $('.container'); // container 요소 선택
+    const header = document.querySelector('.header');
+    const depth1Items = document.querySelectorAll('.depth_1 > li');
+    const naviBg = document.querySelector('.navi-bg');
+    let isHovering = false;
 
-        // hover 시 bg 높이를 업데이트하는 함수
-        function updateBgHeight() {
-            const headerHeight = $headerElement.outerHeight(); // header의 높이
-            let maxHeight = 0;
+    // li 안의 실제 '시각적 끝(bottom)' 좌표 계산
+    function getDeepestBottom(li) {
+        const headerRect = header.getBoundingClientRect();
+        let maxBottom = headerRect.bottom;
 
-            // 모든 depth_2의 높이를 측정하여 최대 높이 찾기
-            $bItems.each(function () {
-                maxHeight = Math.max(maxHeight, $(this).outerHeight());
-            });
+        // li 안의 모든 depth_2, depth_3 탐색
+        const allDepths = li.querySelectorAll('.depth_2, .depth_3');
+        allDepths.forEach(depth => {
+            const rect = depth.getBoundingClientRect();
+            const style = window.getComputedStyle(depth);
 
-            // 모든 depth_2의 높이를 최대 높이에 맞춰 조정
-            $bItems.each(function () {
-                $(this).css('height', maxHeight + 'px'); // 모든 .depth_2의 높이를 최대 높이로 설정
-            });
-
-            // bg의 높이를 header의 높이 + depth_2의 최대 높이로 설정
-            $bgElement.css('height', headerHeight + maxHeight + 'px');
-        }
-
-        // navi-bg 높이 업데이트 함수
-        function updateNaviBgHeight($aItem) {
-            const headerHeight = $headerElement.outerHeight(); // header의 높이
-            const $relatedBItems = $aItem.find('.depth_2'); // 해당 aItem에 포함된 depth_2 선택
-
-            let maxHeight = 0;
-            $relatedBItems.each(function () {
-                maxHeight = Math.max(maxHeight, $(this).outerHeight()); // 해당 depth_2의 최대 높이 측정
-            });
-
-            const $naviBgElement = $aItem.find('.navi-bg'); // 해당 aItem 내의 navi-bg 요소 선택
-            $naviBgElement.css('height', headerHeight + maxHeight + 'px'); // navi-bg의 높이를 업데이트
-        }
-
-        // 초기 로드 시 bg 높이 계산
-        $bgElement.css('height', '0'); // 초기 상태에서 .bg의 높이를 0으로 설정
-
-        // a의 각 항목에 대한 이벤트 설정
-        $aItems.each(function (index) {
-            const $aItem = $(this);
-            const $bItem = $bItems.eq(index);
-
-            $aItem.on('mouseenter', function () {
-                $headerElement.addClass('active');
-                updateBgHeight(); // bg 높이 업데이트
-                updateNaviBgHeight($aItem); // navi-bg 높이 업데이트
-                $aItem.addClass('active');
-                if ($bItem.length) {
-                    $bItem.addClass('active');
-                }
-            });
-
-            $aItem.on('mouseleave', function () {
-                // aItem에서 나가면 active 클래스를 제거
-                $aItem.removeClass('active');
-                if ($bItem.length) {
-                    $bItem.removeClass('active');
-                }
-
-                // header와 bg를 모두 벗어나면 active 해제
-                if (!$headerElement.hasClass('active')) {
-                    resetBgHeight();
-                }
-            });
-        });
-
-        // b의 각 항목에 대한 이벤트 설정
-        $bItems.each(function (index) {
-            const $bItem = $(this);
-            const $aItem = $aItems.eq(index);
-
-            $bItem.on('mouseenter', function () {
-                $headerElement.addClass('active');
-                updateBgHeight(); // bg 높이 업데이트
-                updateNaviBgHeight($aItem); // navi-bg 높이 업데이트
-                $aItem.addClass('active'); // 해당 aItem의 active 상태 유지
-                $bItem.addClass('active'); // 해당 bItem의 active 상태 유지
-            });
-
-            $bItem.on('mouseleave', function (event) {
-                // .depth_2에서 나가면 active 클래스를 제거
-                $bItem.removeClass('active');
-
-                // header와 bg를 모두 벗어나면 active 해제
-                if (!$headerElement.is(event.relatedTarget) && !$bgElement.is(event.relatedTarget)) {
-                    if (!$headerElement.hasClass('active')) {
-                        resetBgHeight();
-                    }
-                }
-            });
-        });
-
-        // bg와 header를 벗어났을 때 처리
-        $(document).on('mouseleave', function (event) {
-            if (!$headerElement.is(event.relatedTarget) && !$bgElement.is(event.relatedTarget)) {
-                $headerElement.removeClass('active'); // header에서 active 클래스 제거
-                resetBgHeight(); // bg 높이 초기화
+            // 마지막 자식 margin-bottom 포함
+            const lastChild = depth.lastElementChild;
+            let marginBottom = 0;
+            if (lastChild) {
+                const lastChildStyle = window.getComputedStyle(lastChild);
+                marginBottom = parseFloat(lastChildStyle.marginBottom) || 0;
             }
+
+            const totalBottom = rect.bottom + marginBottom;
+            if (totalBottom > maxBottom) maxBottom = totalBottom;
         });
 
-        // container에 마우스가 올라갔을 때 header active 제거
-        $containerElement.on('mouseenter', function () {
-            $headerElement.removeClass('active'); // header에서 active 클래스 제거
-            resetBgHeight(); // bg 높이 초기화
-        });
+        // li 자체의 padding-bottom도 포함
+        const liStyle = window.getComputedStyle(li);
+        const paddingBottom = parseFloat(liStyle.paddingBottom) || 0;
+        const borderBottom = parseFloat(liStyle.borderBottomWidth) || 0;
+        maxBottom += paddingBottom + borderBottom;
 
-        // bg 높이 초기화 함수
-        function resetBgHeight() {
-            $bgElement.css('height', 'auto'); // bg의 높이는 자동으로 설정
-            // 모든 depth_2 높이를 초기 상태로 복원
-            $bItems.css('height', 'auto'); // 원래 높이로 복원
+        return maxBottom;
+    }
 
-            // navi-bg의 높이를 0으로 설정
-            $('.navi-bg').css('height', '0'); // 모든 navi-bg 요소 높이를 0으로 설정
+    // navi-bg 높이 갱신
+    function updateNaviBgHeight(li) {
+        const headerRect = header.getBoundingClientRect();
+        const deepestBottom = getDeepestBottom(li);
+        const totalHeight = deepestBottom - headerRect.top;
+
+        if (totalHeight > 0) {
+            naviBg.style.height = `${totalHeight}px`;
+        } else {
+            naviBg.style.height = '';
         }
+    }
 
-        $('.depth_2 > li').each(function () {
-            const $item = $(this);
-            $item.on('mouseenter', function () {
-                // Remove 'active' class from all siblings
-                $item.siblings().removeClass('active');
-                // Add 'active' class to the hovered item
-                $item.addClass('active');
-            });
+    // hover 이벤트
+    depth1Items.forEach(li => {
+        li.addEventListener('mouseenter', () => {
+            depth1Items.forEach(i => i.classList.remove('active'));
+            li.classList.add('active');
+            header.classList.add('active');
+            updateNaviBgHeight(li);
+            isHovering = true;
+        });
 
-            $item.on('mouseleave', function () {
-                // Remove 'active' class when mouse leaves
-                $item.removeClass('active');
-            });
+        li.addEventListener('mouseleave', () => {
+            isHovering = false;
+            setTimeout(() => {
+                if (!isHovering) {
+                    li.classList.remove('active');
+                    header.classList.remove('active');
+                    naviBg.style.height = '';
+                }
+            }, 100);
         });
     });
+
+    // navi-bg hover 유지
+    naviBg.addEventListener('mouseenter', () => {
+        isHovering = true;
+    });
+    naviBg.addEventListener('mouseleave', () => {
+        isHovering = false;
+        setTimeout(() => {
+            if (!isHovering) {
+                header.classList.remove('active');
+                depth1Items.forEach(li => li.classList.remove('active'));
+                naviBg.style.height = '';
+            }
+        }, 100);
+    });
+
+    // 새로고침 시 hover 복원
+    window.addEventListener('load', () => {
+        const hovered = document.querySelector('.depth_1 > li:hover');
+        if (hovered) {
+            hovered.classList.add('active');
+            header.classList.add('active');
+            updateNaviBgHeight(hovered);
+        }
+    });
+
+
+
+
+
+
+
 }
 // footer fetch
 fetch("../../include/footer.html")
@@ -202,203 +167,40 @@ function simpleBar() {
 }
 
 function sideMenu() {
+    
+    $('.sitemap').click(function () {
+        $(this).addClass('is-click');
+        if ($(this).hasClass('is-click')) {
+            $('.side-menu').addClass('is-open');
+            $('body').addClass("overflow-hidden");
 
-    /* 모바일 따로 씀 */
-    if (window.innerWidth <= 1024) {
-        // 기존에 등록된 이벤트를 제거
-        $('.sitemap').off('click');
-        $('.side-menu--close').off('click');
-        $('.side-menu__depth01').off('click');
-        $('.side-menu--close, .side-menu__bg').off('click');
-
-        $('.sitemap').click(function () {
-            $(this).addClass('is-click');
-            if ($(this).hasClass('is-click')) {
-                $('.side-menu').addClass('is-open');
-                $('body').addClass("overflow-hidden");
-            } else {
-                $('.side-menu').removeClass('is-open');
-                $('body').removeClass("overflow-hidden");
-            }
-        });
-
-        $('.side-menu--close').click(function () {
-            $('.sitemap').removeClass('is-click');
-            $(".side-menu").removeClass('is-open');
+        } else {
+            $('.side-menu').removeClass('is-open');
             $('body').removeClass("overflow-hidden");
-        });
+        }
+    });
+    $('.side-menu--close,.side-menu__bg').click(function () {
+        $('.sitemap').removeClass('is-click');
+        $(".side-menu").removeClass('is-open');
+        $('body').removeClass("overflow-hidden");
+    });
+    $('.side-menu__depth02').hide();
 
-        $('.side-menu__depth02').hide();
+    $('.side-menu__depth01:not(.no-dep)').click(function () {
+        $(this).toggleClass('is-open');
 
-        $('.side-menu--close, .side-menu__bg').click(function () {
-            $('.sitemap').removeClass('is-click');
-            $(".side-menu").removeClass('is-open');
-            $('body').removeClass("overflow-hidden");
-        });
+        if ($(this).hasClass('is-open')) {
+            $('.side-menu__depth01').not(this).removeClass("is-open")
+            $('.side-menu__depth01').not(this).next().slideUp();
 
-        $('.side-menu__depth02').hide();
+            $(this).next().slideDown();
+        } else {
+            $(this).next().slideUp();
 
-        $('.side-menu__depth01:not(.no-dep)').click(function () {
-            $(this).toggleClass('is-open');
-            $(this).parents(".side-menu__item").toggleClass('is-open');
-            if ($(this).hasClass('is-open')) {
-                $('.side-menu__depth01').not(this).removeClass("is-open");
-                $('.side-menu__depth01').not(this).parents(".side-menu__item").removeClass("is-open");
-                $('.side-menu__depth01').not(this).next().slideUp();
-                $(this).next().slideDown();
-            } else {
-                $(this).next().slideUp();
-            }
-        });
-    } else {
-        // 기존에 등록된 이벤트를 제거
-        $('.sitemap').off('click');
-        $('.side-menu--close').off('click');
+        }
 
-        $('.sitemap').click(function () {
-            $(this).addClass('is-click');
-            if ($(this).hasClass('is-click')) {
-                $(".bg").addClass("sideOn");
-                $('.side-menu').addClass('is-open');
-                $('body').addClass("overflow-hidden");
-            } else {
-
-                $('.side-menu').removeClass('is-open');
-                $('body').removeClass("overflow-hidden");
-            }
-        });
-
-        $('.side-menu--close').click(function () {
-            $(".bg").removeClass("sideOn");
-            $('.sitemap').removeClass('is-click');
-            $(".side-menu").removeClass('is-open');
-            $('body').removeClass("overflow-hidden");
-        });
-
-        $('.side-menu__depth02').hide();
-
-
-        // .side-menu__item에 대해 마우스 오버/아웃 이벤트 처리
-        document.querySelectorAll('.side-menu__item').forEach((sideMenuItem) => {
-            const depth01Link = sideMenuItem.querySelector('.side-menu__depth01');
-
-            sideMenuItem.addEventListener('mouseenter', function () {
-                // 부모 항목과 해당 메뉴의 depth01에 active 클래스 추가
-                sideMenuItem.classList.add('active');
-                if (depth01Link) {
-                    depth01Link.classList.add('active');
-                }
-            });
-
-            sideMenuItem.addEventListener('mouseleave', function () {
-                // 마우스가 벗어날 때 active 클래스 제거
-                if (!sideMenuItem.querySelector('.side-menu__depth02:hover') && !sideMenuItem.querySelector('.side-menu__depth03:hover')) {
-                    sideMenuItem.classList.remove('active');
-                    if (depth01Link) {
-                        depth01Link.classList.remove('active');
-                    }
-                }
-            });
-        });
-
-        // .side-menu__depth02 항목에 대한 이벤트 처리
-        document.querySelectorAll('.side-menu__depth02 > li').forEach((depth02Li) => {
-            const depth02Link = depth02Li.querySelector('a');
-
-            depth02Li.addEventListener('mouseenter', function () {
-                // 해당 li에 active 클래스 추가
-                depth02Li.classList.add('active');
-
-                // 상위 .side-menu__item에 active 클래스 추가
-                const parentSideMenuItem = depth02Li.closest('.side-menu__item');
-                if (parentSideMenuItem) {
-                    parentSideMenuItem.classList.add('active');
-                    const depth01Link = parentSideMenuItem.querySelector('.side-menu__depth01');
-                    if (depth01Link) {
-                        depth01Link.classList.add('active');
-                    }
-                }
-            });
-
-            depth02Li.addEventListener('mouseleave', function () {
-                // 마우스가 벗어날 때만 active 클래스 제거
-                depth02Li.classList.remove('active');
-
-                const parentSideMenuItem = depth02Li.closest('.side-menu__item');
-                if (parentSideMenuItem && !parentSideMenuItem.querySelector('.side-menu__depth02:hover') && !parentSideMenuItem.querySelector('.side-menu__depth03:hover')) {
-                    parentSideMenuItem.classList.remove('active');
-                    const depth01Link = parentSideMenuItem.querySelector('.side-menu__depth01');
-                    if (depth01Link) {
-                        depth01Link.classList.remove('active');
-                    }
-                }
-            });
-        });
-
-        // .side-menu__depth03 항목에 대한 이벤트 처리
-        document.querySelectorAll('.side-menu__depth03 a').forEach((depth03Link) => {
-            depth03Link.addEventListener('mouseenter', function () {
-                // 해당 depth03 항목의 상위 li에 active 클래스 추가
-                const parentLi = this.closest('li');
-                if (parentLi) {
-                    parentLi.classList.add('active');
-                }
-
-                // 상위 .side-menu__depth02와 .side-menu__item에 active 클래스 추가
-                const parentDepth02 = parentLi.closest('.side-menu__depth02');
-                if (parentDepth02) {
-                    parentDepth02.classList.add('active');
-                    const parentSideMenuItem = parentDepth02.closest('.side-menu__item');
-                    if (parentSideMenuItem) {
-                        parentSideMenuItem.classList.add('active');
-                        const depth01Link = parentSideMenuItem.querySelector('.side-menu__depth01');
-                        if (depth01Link) {
-                            depth01Link.classList.add('active');
-                        }
-                    }
-                }
-            });
-
-            depth03Link.addEventListener('mouseleave', function () {
-                // 마우스가 벗어날 때만 active 클래스 제거
-                const parentLi = this.closest('li');
-                if (parentLi) {
-                    parentLi.classList.remove('active');
-                }
-
-                const parentDepth02 = parentLi.closest('.side-menu__depth02');
-                if (parentDepth02) {
-                    parentDepth02.classList.remove('active');
-                }
-
-                const parentSideMenuItem = parentDepth02.closest('.side-menu__item');
-                if (parentSideMenuItem && !parentSideMenuItem.querySelector('.side-menu__depth02:hover') && !parentSideMenuItem.querySelector('.side-menu__depth03:hover')) {
-                    parentSideMenuItem.classList.remove('active');
-                    const depth01Link = parentSideMenuItem.querySelector('.side-menu__depth01');
-                    if (depth01Link) {
-                        depth01Link.classList.remove('active');
-                    }
-                }
-            });
-        });
-
-
-
-
-
-
-
-
-
-
-    }
+    });
 }
-// sideMenu() 호출
-sideMenu();
-// 윈도우 리사이즈 시 이벤트 핸들러를 다시 등록
-window.addEventListener('resize', function () {
-    sideMenu();
-});
 
 function swiperBox() {
 
@@ -449,7 +251,7 @@ function swiperBox() {
         },
     });
 
-    
+
     var se4__rightSwiper = new Swiper('.se4__rightSwiper.swiper-container', {
         slidesPerView: "auto",
         spaceBetween: 50,
@@ -481,7 +283,7 @@ function swiperBox() {
             clickable: true,
             type: 'custom',
             renderCustom: function (swiper, current, total) {
-                 return '<span class="current">' + current + '</span> / ' + total;
+                return '<span class="current">' + current + '</span> / ' + total;
             },
         },
 

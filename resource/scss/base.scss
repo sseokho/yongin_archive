@@ -1181,7 +1181,9 @@ body {
 .d-flex {}
 
 .hidden {}
-
+.y-scroll {
+    overflow: auto;
+}
 .overflow {
     &-hidden {
         overflow: hidden;

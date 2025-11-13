@@ -103,7 +103,7 @@ textarea {
   border: 0;
   letter-spacing: -0.25px;
   color: #111;
-  font-family: "Pretendard", sans-serif;
+  font-family: "PretendardGOV", sans-serif;
   font-style: normal;
   vertical-align: baseline;
   -webkit-text-size-adjust: none;
@@ -1023,6 +1023,10 @@ body .f_medium {
 }
 .mb-120 {
   margin-bottom: 12rem;
+}
+
+.y-scroll {
+  overflow: auto;
 }
 
 .overflow-hidden {

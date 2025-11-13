@@ -16,67 +16,67 @@
 }
 
 @font-face {
-	font-family: 'Pretendard';
+	font-family: 'PretendardGOV';
 	font-weight: 900;
 	font-display: swap;
-	src: url('../font/Pretendard-Black.woff') format('woff');;
+	src: url('../font/PretendardGOV-Black.woff') format('woff');;
 }
 
 
 @font-face {
-	font-family: 'Pretendard';
+	font-family: 'PretendardGOV';
 	font-weight: 800;
 	font-display: swap;
-	src: url('../font/Pretendard-ExtraBold.woff') format('woff');;
+	src: url('../font/PretendardGOV-ExtraBold.woff') format('woff');;
 }
 
 @font-face {
-	font-family: 'Pretendard';
+	font-family: 'PretendardGOV';
 	font-weight: 700;
 	font-display: swap;
-	src: url('../font/Pretendard-Bold.woff') format('woff');
+	src: url('../font/PretendardGOV-Bold.woff') format('woff');
 }
 
 @font-face {
-	font-family: 'Pretendard';
+	font-family: 'PretendardGOV';
 	font-weight: 600;
 	font-display: swap;
-	src:url('../font/Pretendard-SemiBold.woff') format('woff');;
+	src:url('../font/PretendardGOV-SemiBold.woff') format('woff');;
 }
 
 @font-face {
-	font-family: 'Pretendard';
+	font-family: 'PretendardGOV';
 	font-weight: 500;
 	font-display: swap;
-	src: url('../font/Pretendard-Medium.woff') format('woff');;
+	src: url('../font/PretendardGOV-Medium.woff') format('woff');;
 }
 
 @font-face {
-	font-family: 'Pretendard';
+	font-family: 'PretendardGOV';
 	font-weight: 400;
 	font-display: swap;
-	src: url('../font/Pretendard-Regular.woff') format('woff');;
+	src: url('../font/PretendardGOV-Regular.woff') format('woff');;
 }
 
 @font-face {
-	font-family: 'Pretendard';
+	font-family: 'PretendardGOV';
 	font-weight: 300;
 	font-display: swap;
-	src: url('../font/Pretendard-Light.woff') format('woff');;
+	src: url('../font/PretendardGOV-Light.woff') format('woff');;
 }
 
 @font-face {
-	font-family: 'Pretendard';
+	font-family: 'PretendardGOV';
 	font-weight: 200;
 	font-display: swap;
-	src: url('../font/Pretendard-ExtraLight.woff') format('woff');;
+	src: url('../font/PretendardGOV-ExtraLight.woff') format('woff');;
 }
 
 @font-face {
-	font-family: 'Pretendard';
+	font-family: 'PretendardGOV';
 	font-weight: 100;
 	font-display: swap;
-	src: url('../font/Pretendard-Thin.woff') format('woff');;
+	src: url('../font/PretendardGOV-Thin.woff') format('woff');;
 }
 
 
