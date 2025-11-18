@@ -110,6 +110,39 @@
         top: 18.6rem;
         transform: translateX(-50%);
         width: 130rem;
+
+        .sch-bar {
+            position: relative;
+            width: 92rem;
+            border-radius: 999px;
+            border: 3px solid #FFF;
+            background: rgba(255, 255, 255, 0.10);
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(4px);
+            height: 7.8rem;
+            margin-top: 8.7rem;
+        }
+
+        .search-input {
+            width: 100%;
+            @include font(2, 500, #fff);
+            padding-left: 4rem;
+            padding-right: 10rem;
+
+            &::placeholder {
+                @include font(2, 500, #fff);
+            }
+        }
+
+        .search-button {
+            position: absolute;
+            width: 4rem;
+            height: 4rem;
+            right: 3.6rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: url(../image/main/search-button.svg) center/contain;
+        }
     }
 
     .tag-wrap {
@@ -119,6 +152,7 @@
 
         .tit {
             @include font(1.8, 700, #fff);
+            margin-right: 2.4rem;
         }
 
         .tags {
@@ -1204,6 +1238,7 @@
         .count-all {
             line-height: 160%;
             @include font(1.7, 500, #111);
+
             >span {
                 margin-left: 0.4rem;
                 display: inline-block;
@@ -1355,11 +1390,11 @@
             text-decoration: none;
 
             &.link-prev {
-                    background: url("../image/sub/icon-arrow--prev.svg") no-repeat 0rem center;
-                    padding-left: 2rem;
-                    box-sizing: content-box;
-                    background-size: 2rem 2rem;
-                    color:#545456;
+                background: url("../image/sub/icon-arrow--prev.svg") no-repeat 0rem center;
+                padding-left: 2rem;
+                box-sizing: content-box;
+                background-size: 2rem 2rem;
+                color: #545456;
             }
 
             &.link-next {
@@ -1367,7 +1402,7 @@
                 background-size: 2rem 2rem;
                 padding-right: 2rem;
                 box-sizing: content-box;
-                color:#545456;
+                color: #545456;
             }
 
             &.link-next__all {
@@ -3706,6 +3741,7 @@ section {
                 border: none;
                 @include font(1.7, 400, #05020f);
                 background: #f7f7f7;
+
                 &:after {
                     width: 2.4rem;
                     height: 2.4rem;
@@ -4308,14 +4344,16 @@ section {
                 }
             }
         }
-        .notice{
-            .txt{
+
+        .notice {
+            .txt {
                 background: #F7F7F7;
-                padding:0.2rem 1.2rem;
+                padding: 0.2rem 1.2rem;
                 line-height: 160%;
-                @include font(1.6,500,#545456);
+                @include font(1.6, 500, #545456);
             }
         }
+
         .td {
             &-title {
                 padding: 0 3rem;
@@ -4339,6 +4377,8 @@ section {
                     flex: none;
                 }
             }
+
+            
 
             &-titlelink {
                 @include ellipsis(1);
@@ -4474,7 +4514,11 @@ section {
                 line-height: normal;
             }
         }
-
+        .down-icon {
+            display: block;
+                width: 2.4rem;
+                margin:0 auto;
+            }
         &__view {
             table {
                 th {
@@ -4737,12 +4781,14 @@ section {
     }
 
     &__file {
-        border-top:1px solid #eaeaea;
+        border-top: 1px solid #eaeaea;
+
         &__inner {
             padding: 2.4rem 0 4rem 0;
             display: flex;
             align-items: flex-start;
             padding-left: 2.4rem;
+
             .board-file-tit {
                 width: 6.2rem;
                 text-align: center;
@@ -4878,6 +4924,7 @@ section {
 
             span {
                 @include font(1.8, 400, #747478);
+
                 em {
                     margin-right: 0.4rem;
                     @include font(1.8, 600, #747478);
@@ -4886,15 +4933,16 @@ section {
                 &+span {
                     padding-left: 3.2rem;
                     position: relative;
-                    &::before{
-                        content:'';
+
+                    &::before {
+                        content: '';
                         position: absolute;
                         display: block;
-                        left:1.5rem;
-                        top:50%;
+                        left: 1.5rem;
+                        top: 50%;
                         transform: translateY(-50%);
-                        width:0.1rem;
-                        height:90%;
+                        width: 0.1rem;
+                        height: 90%;
                         background: #dadada;
                     }
                 }
@@ -5347,15 +5395,16 @@ section {
         }
 
         &.on:not(.link-move) {
-            @include font(1.7,700,#05020f);
+            @include font(1.7, 700, #05020f);
             background: #f7f7f7;
             position: relative;
-            &::after{
-                content:'';
-                position:absolute;
-                bottom:0.7rem;
-                width:30%;
-                height:0.2rem;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0.7rem;
+                width: 30%;
+                height: 0.2rem;
                 background: #05020f;
             }
         }
@@ -6024,13 +6073,14 @@ section {
                 text-align: right;
                 position: relative;
                 margin-right: 2.4rem;
+
                 &:before {
                     position: absolute;
                     left: 0;
                     top: 50%;
                     transform: translateY(-50%);
                     content: '';
-                    width:2.4rem;
+                    width: 2.4rem;
                     height: 2.4rem;
                     background: url(../image/sub/link-post__prev.svg) no-repeat center / contain;
                 }

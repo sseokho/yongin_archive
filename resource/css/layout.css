@@ -617,15 +617,14 @@ body .f_medium {
   line-height: 3.4rem;
 }
 .btn-list {
-  border: 1px solid #009e71;
+  border: 1px solid #dadada;
   background: #fff;
-  color: #009e71;
-  border-radius: 999px;
+  color: #05020f;
 }
 .btn-list.small {
   width: 12.6rem;
   height: 5.2rem;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   font-weight: 500;
   line-height: 5.2rem;
 }
