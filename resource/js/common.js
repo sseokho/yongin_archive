@@ -279,6 +279,13 @@ function swiperBox() {
             clickable: true,
         },
 
+        scrollbar: {
+            el: '.se2__rightSwiper .swiper-scrollbar',
+            draggable: true,
+            hide: false,
+        },
+
+
         breakpoints: {
             320: {
                 loop: true,
@@ -347,25 +354,35 @@ function swiperBox() {
 
     var se5__frontSwiper = new Swiper('.se5__frontSwiper.swiper-container', {
         slidesPerView: "auto",
-        loop: true,
+        loop: false,
+        freeMode:true,
         observer: true,
         observeParents: true,
-        navigation: {
-            nextEl: ".se5__left .nav-button.next",
-            prevEl: ".se5__left .nav-button.prev",
+        // ✅ 스크롤(드래그) 및 마우스 휠 이동 허용
+        mousewheel: {
+            forceToAxis: true, // 세로 스크롤 방지하고 가로로만 작동
+            sensitivity: 1,
         },
-        pagination: {
-            el: '.se5__frontSwiper .swiper-pagination',
-            clickable: true,
+        grabCursor: true, // 마우스 커서 손 모양으로 변경 (드래그 가능)
+
+        // ✅ 스크롤바 추가 (선택)
+        scrollbar: {
+            el: ".se5__frontSwiper .swiper-scrollbar",
+            draggable: true,
+            hide: false,
         },
+
+
         breakpoints: {
             320: {
-                loop: true,
-                centeredSlides: true,
                 slidesPerView: 1,
                 spaceBetween: 10,
             },
-            1024: {},
+            1024: {
+                slidesPerView: "auto",
+                spaceBetween: 0,
+                
+            },
         },
     });
 

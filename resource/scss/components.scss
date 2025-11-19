@@ -459,6 +459,8 @@
 
             &.open {
                 display: block;
+                position: relative;
+                z-index: 99;
             }
         }
     }
@@ -2564,6 +2566,7 @@ section {
 
         &__header {
             position: relative;
+            z-index: 0;
             @include font(2.8, 700, #fff);
             text-align: right;
             padding: 1.6rem 0;
@@ -2678,7 +2681,7 @@ section {
     position: relative;
     background: #fff;
     overflow: hidden;
-    padding: 12rem 0;
+    padding: 12rem 0 0;
 
     &__inner {
         width: 144rem;
@@ -2839,6 +2842,12 @@ section {
 
 .se5 {
     position: relative;
+    width: 100%;
+    height: auto;
+    position: relative;
+    background: #fff;
+    overflow: hidden;
+    padding: 12rem 0;
 
     .sec-tit {
         color: #fff;
@@ -2846,6 +2855,9 @@ section {
     }
 
     &__back {
+        position: absolute;
+        width: 100%;
+
         .img-wrap {
             position: relative;
             display: block;
@@ -2872,43 +2884,100 @@ section {
     }
 
     &__front {
-        width: calc(100% - 24rem);
-        position: absolute;
-        right: 0;
-        /* -webkit-transform: translateX(-50%); */
-        /* transform: translateX(-50%); */
-        top: 0;
 
         .se5__front__inner {
-            margin: 0 auto;
-            position: relative;
+            
+            height: 100%;
+            overflow: hidden;
+            margin-left: auto;
         }
 
         .sec-tit {
-            position: absolute;
-            top: 10rem;
+            position: relative;
+            /* top: 10rem; */
+            /* left: 24rem; */
+            width: 144rem;
+            max-width: 100%;
+            margin: 10rem auto 0;
+            border-top: none;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                display: block;
+                width: 22rem;
+                height: 0.3rem;
+                background: #fff;
+            }
         }
 
         .se5__frontSwiper {
-            margin-top: 40rem;
-            position: absolute;
-            top: 10rem;
-            width: 100%;
+            margin-top: 20rem;
+            padding-bottom: 4rem;
+            width: 168rem;
+            position: relative;
+            margin-left: auto;
+
+            .swiper-wrapper {
+                align-items: flex-end;
+            }
         }
 
         .swiper-slide {
             position: relative;
-            flex: 1;
             opacity: 1;
             transition: all 0.5s;
-            transform-origin: bottom center;
-            min-height: 30rem;
+            min-height: 42rem;
+
+            width: 27.4rem;
+
+            .img-wrap {}
+
+            &.active {
+                width:58.8rem;
+                .img-wrap {
+
+                    width: 100%;
+                    height: 42rem;
+
+                    &::before {
+                        background: linear-gradient(180deg, rgba(9, 18, 39, 0.95) 8.41%, rgba(9, 18, 39, 0.50) 55%, rgba(0, 0, 0, 0.00) 78.61%);
+                        background-blend-mode: multiply;
+                        height: 42rem;
+                    }
+                }
+
+                .tag-wrap {
+                    .tit {
+                        @include font(3.2, 700, #fff);
+                    }
+                }
+
+                .tags {
+                    width: 38.3rem;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: flex-start;
+                    gap: 0.8rem;
+                    margin-top: 1.6rem;
+
+                    a {
+                        padding: 0.4rem 1.2rem;
+                        @include font(1.7, 500, #fff);
+                        background: rgba(255, 255, 255, 0.10);
+                        backdrop-filter: blur(2px);
+                    }
+                }
+
+            }
 
             .img-wrap {
                 position: absolute;
                 bottom: 0;
                 display: block;
                 height: 30rem;
+                width: 100%;
 
                 img {
                     width: 100%;
@@ -2947,43 +3016,7 @@ section {
                 display: none;
             }
 
-            &.active {
-                flex: 2;
 
-                .img-wrap {
-                    width: 100%;
-                    height: 42rem;
-
-                    &::before {
-                        background: linear-gradient(180deg, rgba(9, 18, 39, 0.95) 8.41%, rgba(9, 18, 39, 0.50) 55%, rgba(0, 0, 0, 0.00) 78.61%);
-                        background-blend-mode: multiply;
-                        height: 42rem;
-                    }
-                }
-
-                .tag-wrap {
-                    .tit {
-                        @include font(3.2, 700, #fff);
-                    }
-                }
-
-                .tags {
-                    width: 38.3rem;
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: flex-start;
-                    gap: 0.8rem;
-                    margin-top: 1.6rem;
-
-                    a {
-                        padding: 0.4rem 1.2rem;
-                        @include font(1.7, 500, #fff);
-                        background: rgba(255, 255, 255, 0.10);
-                        backdrop-filter: blur(2px);
-                    }
-                }
-
-            }
         }
     }
 }
@@ -2994,6 +3027,7 @@ section {
     position: relative;
     background: #F8F8F8;
     overflow: hidden;
+    margin-top: -35rem;
     padding: 26rem 0 11.5rem 0;
     background: url(../image/main/se6__back.jpg) center/cover no-repeat;
 
@@ -3270,6 +3304,12 @@ section {
     }
 }
 
+@media (min-width: 1680px) {
+    .se5__front__inner::-webkit-scrollbar {
+        visibility: hidden;
+    }
+
+}
 
 @media (min-width: 1025px) {
     .side-menu {
@@ -4378,7 +4418,7 @@ section {
                 }
             }
 
-            
+
 
             &-titlelink {
                 @include ellipsis(1);
@@ -4514,11 +4554,13 @@ section {
                 line-height: normal;
             }
         }
+
         .down-icon {
             display: block;
-                width: 2.4rem;
-                margin:0 auto;
-            }
+            width: 2.4rem;
+            margin: 0 auto;
+        }
+
         &__view {
             table {
                 th {
