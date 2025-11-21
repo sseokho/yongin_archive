@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@use "bar" as *;
 @use "base" as *;
 
 #skipNavigation {
@@ -2221,11 +2222,11 @@ input {
     }
 
     .sec-tit {
-        @include font(3.2, 700, #111);
-        line-height: 150%;
+        @include font(3.6, 700, $text-primary);
+        line-height: 140%;
         text-align: left;
-        padding-top: 2rem;
-        border-top: 3px solid $color-black;
+        padding-top: 2.4rem;
+        border-top: 3px solid $text-primary;
         width: 22rem;
 
         &+.btn_wrap {
@@ -2285,7 +2286,7 @@ section {
     position: relative;
     background: $color-white;
     overflow: hidden;
-    padding: 8rem 0;
+    padding: 10rem 0;
 
     &__inner {
         width: 144rem;
@@ -2304,7 +2305,7 @@ section {
         .btn_wrap {
             button {
                 &+button {
-                    margin-left: 0.2rem;
+                    margin-left: 0.4rem;
                 }
             }
         }
@@ -2353,9 +2354,19 @@ section {
         overflow: hidden;
 
         .swiper-slide {
-            width: 24rem;
+            width: 22rem;
             height: 26rem;
             background: $gray-100;
+			transition: all .2s ease;
+
+			@media (min-width: 1025px) {
+				&:hover{
+					background: $brand-point;
+
+					.tit,
+					.txt{ color: $color-white;}
+				}
+			}
         }
 
         .se2__rightSwiper {
@@ -2376,18 +2387,17 @@ section {
             }
 
             .se2-item {
-                width: 24rem;
-                padding: 2rem;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
+				position: relative;
+                width: 22rem;
                 height: 26rem;
-
-
+                padding: 3.2rem;
             }
 
 
             .img-wrap {
+				position: absolute;
+				right: 2rem;
+				bottom: 2rem;
                 display: block;
                 width: 9rem;
                 height: 9rem;
@@ -2408,19 +2418,15 @@ section {
             }
 
             .tit {
-                font-size: 1.8rem;
-                line-height: 150%;
-                font-weight: 500;
-                color: #111;
+				@include font(2.4, 600, $text-primary);
+                line-height: 160%;
                 @include ellipsis(2);
             }
 
             .txt {
-                font-size: 1.6rem;
-                line-height: 150%;
-                font-weight: 400;
+				@include font(1.7, 400, $text-secondary);
+                line-height: 160%;
                 margin-top: 0.8rem;
-                color: #585858;
                 @include ellipsis(2);
                 word-break: break-word;
             }
@@ -3927,7 +3933,7 @@ section {
                                         content: '';
                                         z-index: -1;
                                         display: block;
-                                        box-shadow: 3px 3px 13px 0px $color-realblack14;
+                                        box-shadow: 3px 3px 13px 0px $color-realblack;
                                         border-radius: 0.8rem;
                                         border: 1px solid #68A1FF;
                                         overflow: hidden;
