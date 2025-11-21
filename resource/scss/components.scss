@@ -176,22 +176,24 @@
 
     .tag-wrap {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: flex-start;
 		margin: 0 auto;
 		padding-left: 4rem;
 
         .tit {
             @include font(1.8, 700, #fff);
+			line-height: 1.6;
 			width: 7.7rem;
             margin-right: 2.4rem;
+			padding: .6rem 0;
         }
 
         .tags {
             text-align: center;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
 			flex-wrap: wrap;
             gap: 0.6rem;
 			max-width: calc(100% - 10.1rem);
