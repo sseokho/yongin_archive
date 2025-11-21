@@ -14,7 +14,7 @@
         text-align: center;
         width: 100%;
         z-index: 500;
-        background-color: #fff;
+        background-color: $color-white;
 
         &:hover,
         &:focus,
@@ -22,10 +22,10 @@
             position: Absolute;
             padding: 0.2rem 0;
             left: 0;
-            color: #000;
+            color: $color-realblack;
             font-size: 2rem;
             z-index: 500;
-            border: 1px solid #000;
+            border: 1px solid $color-realblack;
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
         }
@@ -44,8 +44,8 @@
     margin: 0 auto;
     max-width: 100%;
     height: 0;
-    border-top: 1px solid #EAEAEA;
-    background: #fff;
+    border-top: 1px solid $border-secondary;
+    background: $color-white;
     display: block;
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -61,7 +61,7 @@
     width: 192rem;
     margin: 0 auto;
     max-width: 100%;
-    background: #fff;
+    background: $color-white;
     display: block;
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -103,7 +103,7 @@
 
     .txt-wrap {
         .tit {
-            @include font(2.2, 600, #fff);
+            @include font(2.2, 600, $color-white);
             line-height: 150%;
             text-align: center;
         }
@@ -111,7 +111,7 @@
         .txt {
 			margin-top: .8rem;
             font-family: 'GyeonggiBatang';
-            @include font(6.4, 700, #fff);
+            @include font(6.4, 700, $color-white);
             line-height: 140%;
             text-align: center;
         }
@@ -128,7 +128,7 @@
             position: relative;
             width: 92rem;
             border-radius: 999px;
-            border: 3px solid #FFF;
+            border: 3px solid $color-white;
             background: rgba(255, 255, 255, 0.10);
             box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
             backdrop-filter: blur(4px);
@@ -138,12 +138,12 @@
 			// 포커스
 			&:has(input:focus){
 				border-color: $brand-point;
-				background: #fff;
+				background: $color-white;
 				.sch-input{
-					color: #05020F;
+					color: $color-black;
 					outline: none;
 					&::placeholder{
-						color: #05020F;
+						color: $color-black;
 					}
 				}
 				.sch-btn{
@@ -154,12 +154,12 @@
 
         .sch-input {
             width: 100%;
-            @include font(2, 500, #fff);
+            @include font(2, 500, $color-white);
             padding-left: 3.7rem;
             padding-right: 10rem;
 
             &::placeholder {
-                @include font(2, 500, #fff);
+                @include font(2, 500, $color-white);
             }
         }
 
@@ -182,7 +182,7 @@
 		padding-left: 4rem;
 
         .tit {
-            @include font(1.8, 700, #fff);
+            @include font(1.8, 700, $color-white);
 			line-height: 1.6;
 			width: 7.7rem;
             margin-right: 2.4rem;
@@ -206,7 +206,7 @@
                     border-radius: 999px;
                     background: rgba(5, 2, 15, 0.40);
                     backdrop-filter: blur(2px);
-                    @include font(1.8, 500, #fff);
+                    @include font(1.8, 500, $color-white);
                     line-height: 160%;
                     padding: .6rem 1.6rem;
 					transition: all .2s ease;
@@ -225,25 +225,25 @@
 
 .header.active {
     .navi-bg {
-        border-top: 1px solid #EAEAEA;
+        border-top: 1px solid $border-secondary;
     }
 
     .nav .navWrap .depth_1>li>a {
-        @include font(2, 700, #05020F);
+        @include font(2, 700, $color-black);
     }
 
     .nav .navWrap .depth_1>li.active>a {
-        @include font(2, 700, #2C1F67);
+        @include font(2, 700, $brand-primary);
 
     }
 
     .nav .navWrap .depth_2>li>a {
-        @include font(1.8, 500, #05020F);
+        @include font(1.8, 500, $color-black);
     }
 
 
     .nav .navWrap .depth_3>li>a {
-        @include font(1.7, 400, #545456);
+        @include font(1.7, 400, $gray-600);
     }
 
     .nav .navWrap .depth_1>li:has(.depth_3) {
@@ -288,7 +288,7 @@
             top: 9.4rem;
             width: 100%;
             height: 41.6rem;
-            background-color: #fff;
+            background-color: $color-white;
             z-index: 3;
             content: "";
         }
@@ -314,7 +314,7 @@
                 left: -25%;
                 width: 150%;
                 height: 41.6rem;
-                background-color: #fff;
+                background-color: $color-white;
                 z-index: 2;
                 content: "";
             }
@@ -405,7 +405,7 @@
                     justify-content: space-around;
                     overflow: hidden;
                     position: relative;
-                    @include font(2, 700, #fff);
+                    @include font(2, 700, $color-white);
                 }
 
             }
@@ -541,7 +541,7 @@
         position: absolute;
         z-index: 3;
         width: 100%;
-        background: #fff;
+        background: $color-white;
     }
 
     /* 옵션 목록 */
@@ -663,7 +663,7 @@
                 width: 3px;
                 height: 3px;
                 border-radius: 999px;
-                background-color: #545456;
+                background-color: $gray-600;
                 left: 3px;
             }
         }
@@ -682,7 +682,7 @@
                 font-size: 1.4rem;
                 line-height: 140%;
                 font-weight: 400;
-                color: #545456;
+                color: $gray-600;
                 margin-right: 8px;
             }
 
@@ -692,7 +692,7 @@
                 font-size: 1.4rem;
                 line-height: 140%;
                 font-weight: 500;
-                color: #A3A3A5;
+                color: $gray-400;
             }
         }
     }
@@ -714,7 +714,7 @@
         height: 100%;
         width: 100%;
         border: none;
-        color: #fff;
+        color: $color-white;
     }
 }
 
@@ -782,7 +782,7 @@
 
 .btn_white {
     border: 1px solid #E2E5E9;
-    background: #FFFFFF;
+    background: $color-white;
     color: #111111;
 
     &:hover {
@@ -792,7 +792,7 @@
 
 .btn_blue {
     background: #0046A3;
-    color: #FFFFFF;
+    color: $color-white;
 
     &:hover {
         text-decoration: underline;
@@ -807,7 +807,7 @@
 
     &:hover {
         text-decoration: underline;
-        background: #EAEAEA;
+        background: $border-secondary;
     }
 }
 
@@ -815,7 +815,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #F7F7F7;
+    background: $gray-100;
     border: 1px solid #E2E5E9;
     color: #111111;
     line-height: 160%;
@@ -830,7 +830,7 @@
     }
 
     &:hover {
-        background: #EAEAEA;
+        background: $border-secondary;
         border-color: #E2E5E9;
     }
 }
@@ -838,7 +838,7 @@
 .btn_inactivation {
     background: #F9F9F9;
     border: 1px solid #E2E5E9;
-    color: #A3A3A5;
+    color: $gray-400;
 }
 
 @keyframes fade-out {
@@ -884,7 +884,7 @@
     .tit-depth__04 {
         padding: 2.4rem 0;
         box-sizing: border-box;
-        border-bottom: 1px solid #EAEAEA;
+        border-bottom: 1px solid $border-secondary;
     }
 
     &__info {
@@ -906,7 +906,7 @@
 
             >span {
                 margin-right: 1rem;
-                color: #545456;
+                color: $gray-600;
             }
         }
     }
@@ -922,7 +922,7 @@
             align-items: center;
             font-size: 1.6rem;
             line-height: 160%;
-            color: #545456;
+            color: $gray-600;
 
             &+a {
                 margin-top: 0.6rem;
@@ -940,7 +940,7 @@
             }
 
             &:hover {
-                color: #464648;
+                color: $gray-700;
                 text-decoration: underline;
             }
         }
@@ -962,8 +962,8 @@
     }
 
     &__list {
-        border-top: 1px solid #EAEAEA;
-        border-bottom: 1px solid #EAEAEA;
+        border-top: 1px solid $border-secondary;
+        border-bottom: 1px solid $border-secondary;
 
         >a {
             display: flex;
@@ -976,7 +976,7 @@
             >span {
                 display: inline-block;
                 margin-right: 3rem;
-                color: #747478;
+                color: $gray-500;
                 font-size: 1.6rem;
                 line-height: 160%;
             }
@@ -984,11 +984,11 @@
             >p {
                 font-size: 1.6rem;
                 line-height: 160%;
-                color: #464648;
+                color: $gray-700;
             }
 
             &+a {
-                border-top: 1px solid #EAEAEA;
+                border-top: 1px solid $border-secondary;
             }
         }
     }
@@ -1024,13 +1024,13 @@
     }
 
     .thead {
-        border-top: 2px solid #05020f;
+        border-top: 2px solid $color-black;
 
         .tr {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            border-bottom: 1px solid #A3A3A5;
+            border-bottom: 1px solid $gray-400;
 
             .th {
                 padding: 1.5rem 0;
@@ -1049,10 +1049,10 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            border-bottom: 1px solid #EAEAEA;
+            border-bottom: 1px solid $border-secondary;
 
             &:hover {
-                background: #EAEAEA;
+                background: $border-secondary;
 
                 .td>a {
                     text-decoration: underline;
@@ -1065,7 +1065,7 @@
                 font-size: 1.7rem;
                 line-height: 160%;
                 text-align: center;
-                color: #464648;
+                color: $gray-700;
 
                 &.no-list {
                     width: 100%;
@@ -1128,7 +1128,7 @@
                 margin-top: 0.7rem;
                 font-size: 1.4rem;
                 line-height: 160%;
-                color: #464648;
+                color: $gray-700;
 
                 >span {
                     color: #0046A3;
@@ -1140,11 +1140,11 @@
             align-items: flex-start;
 
             .ui-input {
-                background: #fff;
+                background: $color-white;
                 text-align: left;
                 padding-left: 1.6rem;
                 position: relative;
-                border: 1px solid #eaeaea;
+                border: 1px solid $border-secondary;
                 display: flex;
                 align-items: center;
 
@@ -1303,7 +1303,7 @@
     .selected {
         width: 100%;
         height: 100%;
-        background: #fff url(../image/icon-down.png) no-repeat center right 1.6rem;
+        background: $color-white url(../image/icon-down.png) no-repeat center right 1.6rem;
         background-size: 2rem 2rem;
         border: 1px solid #E2E5E9;
         display: flex;
@@ -1314,7 +1314,7 @@
         font-weight: 400;
 
         &.active {
-            background: #fff url(../image/icon-up.png) no-repeat center right 1.6rem;
+            background: $color-white url(../image/icon-up.png) no-repeat center right 1.6rem;
             background-size: 2rem 2rem;
         }
     }
@@ -1416,7 +1416,7 @@
                 padding-left: 2rem;
                 box-sizing: content-box;
                 background-size: 2rem 2rem;
-                color: #545456;
+                color: $gray-600;
             }
 
             &.link-next {
@@ -1424,7 +1424,7 @@
                 background-size: 2rem 2rem;
                 padding-right: 2rem;
                 box-sizing: content-box;
-                color: #545456;
+                color: $gray-600;
             }
 
             &.link-next__all {
@@ -1450,8 +1450,8 @@
 /* ui-input */
 .ui-input {
     border-radius: 6px;
-    border-color: #EAEAEA;
-    color: #747478;
+    border-color: $border-secondary;
+    color: $gray-500;
     font-size: 1.7rem;
     line-height: 160%;
 
@@ -1475,10 +1475,10 @@
 .ui-select {
     font-size: 1.7rem;
     line-height: 160%;
-    color: #747478;
+    color: $gray-500;
     border-radius: 6px;
-    border-color: #EAEAEA;
-    background: #FFFFFF url(../img/sub/icon/icon-down.png) no-repeat center right 1.6rem;
+    border-color: $border-secondary;
+    background: $color-white url(../img/sub/icon/icon-down.png) no-repeat center right 1.6rem;
     background-size: 2.4rem 2.4rem;
 
     option {
@@ -1510,8 +1510,8 @@
     box-sizing: border-box;
     resize: none;
     border-radius: 6px;
-    border-color: #EAEAEA;
-    color: #747478;
+    border-color: $border-secondary;
+    color: $gray-500;
     font-size: 1.7rem;
     line-height: 160%;
 
@@ -1534,7 +1534,7 @@ input {
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
-        background: #FFFFFF;
+        background: $color-white;
         border: 6px solid #E2E5E9;
         border-radius: 100%;
 
@@ -1549,7 +1549,7 @@ input {
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
-        background: #FFFFFF;
+        background: $color-white;
         border: 1px solid #CDCFD4;
         border-radius: 0.4rem;
 
@@ -1716,7 +1716,7 @@ input {
                         }
 
                         .profile-view {
-                            border-top: 1px solid #dedede;
+                            border-top: 1px solid $gray-300;
                             padding-top: 3rem;
                         }
 
@@ -1743,7 +1743,7 @@ input {
 
                                 .tab__list {
                                     display: flex;
-                                    border-bottom: 1px solid #dedede;
+                                    border-bottom: 1px solid $gray-300;
                                 }
 
                                 .tab__item {
@@ -1778,7 +1778,7 @@ input {
                         position: relative;
                         max-width: 100%;
                         margin: 0 auto;
-                        background: #fff;
+                        background: $color-white;
 
                         .pop {
                             &-tit {}
@@ -1811,10 +1811,10 @@ input {
 
                                 .tit {
                                     text-align: center;
-                                    @include font(3, 500, #000);
+                                    @include font(3, 500, $color-realblack);
 
                                     span {
-                                        @include font(3, 500, #000);
+                                        @include font(3, 500, $color-realblack);
                                         color: blue;
                                     }
                                 }
@@ -1842,7 +1842,7 @@ input {
 
                         input {
                             width: 36.5rem;
-                            color: #747478;
+                            color: $gray-500;
                         }
                     }
                 }
@@ -1912,8 +1912,8 @@ input {
                     width: 100%;
                     display: block;
                     text-align: left;
-                    background: #000;
-                    color: #FFF;
+                    background: $color-realblack;
+                    color: $color-white;
                     font-size: 1.8rem;
                     font-weight: 600;
                     line-height: 6rem;
@@ -1944,12 +1944,12 @@ input {
 
                     &-style--check {
                         background: #4FA6F6;
-                        color: #FFF;
+                        color: $color-white;
                     }
 
                     &-style--close {
                         background: #DBDBDB;
-                        color: #FFF;
+                        color: $color-white;
                     }
                 }
             }
@@ -1969,13 +1969,13 @@ input {
                 background: #E54125;
                 line-height: 3.2rem;
                 text-align: center;
-                color: #FFF;
+                color: $color-white;
                 font-size: 1.6rem;
                 font-weight: 500;
             }
 
             .tit {
-                color: #000;
+                color: $color-realblack;
                 font-size: 3.2rem;
                 font-weight: 500;
                 line-height: 5rem;
@@ -2071,7 +2071,7 @@ input {
             color: #555;
             font-weight: 400;
             border: 1px solid #d7d7d7;
-            background-color: #fff;
+            background-color: $color-white;
             background: url(../image/common/icon/search_select_arrow.png) no-repeat;
             background-size: 1.4rem;
 
@@ -2107,10 +2107,10 @@ input {
             padding-right: 2rem;
             border: 1px solid #E2E6ED;
             border-radius: 0.8rem;
-            @include font(1.6, 400, #000000);
+            @include font(1.6, 400, $color-realblack);
 
             &:focus-visible {
-                border: 1px solid #000;
+                border: 1px solid $color-realblack;
                 outline: none;
 
                 &~.sch-form__btn {
@@ -2157,7 +2157,7 @@ input {
         * {
             font-size: 1.8rem;
             font-weight: 400;
-            color: #000;
+            color: $color-realblack;
         }
     }
 
@@ -2165,7 +2165,7 @@ input {
         color: #333;
 
         >span {
-            color: #000;
+            color: $color-realblack;
             font-weight: 500;
         }
     }
@@ -2174,7 +2174,7 @@ input {
         margin-left: 16px;
 
         &__each {
-            color: #000;
+            color: $color-realblack;
         }
     }
 }
@@ -2212,12 +2212,12 @@ input {
         left: 0;
         bottom: 0;
         top: unset;
-        background: #eaeaea;
+        background: $border-secondary;
     }
 
     .swiper-scrollbar-drag {
         border-radius: 0;
-        background: #05020F;
+        background: $color-black;
     }
 
     .sec-tit {
@@ -2225,7 +2225,7 @@ input {
         line-height: 150%;
         text-align: left;
         padding-top: 2rem;
-        border-top: 3px solid #05020F;
+        border-top: 3px solid $color-black;
         width: 22rem;
 
         &+.btn_wrap {
@@ -2283,7 +2283,7 @@ section {
     width: 100%;
     height: auto;
     position: relative;
-    background: #fff;
+    background: $color-white;
     overflow: hidden;
     padding: 8rem 0;
 
@@ -2322,7 +2322,7 @@ section {
                     line-height: 3rem;
 
                     em {
-                        @include font(1.8, 600, #000);
+                        @include font(1.8, 600, $color-realblack);
                         position: relative;
                         display: inline-flex;
                         z-index: 2;
@@ -2355,7 +2355,7 @@ section {
         .swiper-slide {
             width: 24rem;
             height: 26rem;
-            background: #f7f7f7;
+            background: $gray-100;
         }
 
         .se2__rightSwiper {
@@ -2530,8 +2530,8 @@ section {
     background: url(../image/main/se3__back.jpg) center/cover no-repeat;
 
     .sec-tit {
-        color: #fff;
-        border-color: #fff;
+        color: $color-white;
+        border-color: $color-white;
     }
 
     &:before,
@@ -2585,7 +2585,7 @@ section {
         &__header {
             position: relative;
             z-index: 0;
-            @include font(2.8, 700, #fff);
+            @include font(2.8, 700, $color-white);
             text-align: right;
             padding: 1.6rem 0;
             display: flex;
@@ -2609,7 +2609,7 @@ section {
                 bottom: 0;
                 width: 100%;
                 height: 0.3rem;
-                background: #fff;
+                background: $color-white;
             }
 
             &.active {
@@ -2628,11 +2628,11 @@ section {
         }
 
         .tit {
-            @include font(1.8, 500, #fff);
+            @include font(1.8, 500, $color-white);
         }
 
         .txt {
-            @include font(3.4, 400, #fff);
+            @include font(3.4, 400, $color-white);
             text-align: right;
             opacity: 0.2;
         }
@@ -2682,11 +2682,11 @@ section {
             }
 
             &::-webkit-scrollbar-track {
-                background: #EAEAEA;
+                background: $border-secondary;
             }
 
             &::-webkit-scrollbar-thumb {
-                background: #05020F;
+                background: $color-black;
             }
         }
     }
@@ -2697,7 +2697,7 @@ section {
     width: 100%;
     height: auto;
     position: relative;
-    background: #fff;
+    background: $color-white;
     overflow: hidden;
     padding: 12rem 0 0;
 
@@ -2728,7 +2728,7 @@ section {
 
             .swiper-pagination {
                 position: unset;
-                @include font(1.8, 600, #05020F);
+                @include font(1.8, 600, $color-black);
 
                 .current {
                     @include font(1.8, 600, $brand-point)
@@ -2749,7 +2749,7 @@ section {
                     line-height: 3rem;
 
                     em {
-                        @include font(1.8, 600, #000);
+                        @include font(1.8, 600, $color-realblack);
                         position: relative;
                         display: inline-flex;
                         z-index: 2;
@@ -2836,18 +2836,18 @@ section {
             .tit {
                 color: #111;
                 @include ellipsis(2);
-                @include font(2, 600, #05020F);
+                @include font(2, 600, $color-black);
             }
 
             .cate {
                 position: absolute;
                 left: 0;
                 top: 0;
-                background: #000;
+                background: $color-realblack;
                 color: #585858;
                 word-break: break-word;
                 padding: 0.4rem 1.2rem;
-                @include font(1.6, 700, #fff);
+                @include font(1.6, 700, $color-white);
             }
 
         }
@@ -2863,13 +2863,13 @@ section {
     width: 100%;
     height: auto;
     position: relative;
-    background: #fff;
+    background: $color-white;
     padding: 12rem 0;
     height: 75.9rem;
 
     .sec-tit {
-        color: #fff;
-        border-color: #fff;
+        color: $color-white;
+        border-color: $color-white;
     }
 
     &__inner {
@@ -2932,7 +2932,7 @@ section {
                 display: block;
                 width: 22rem;
                 height: 0.3rem;
-                background: #fff;
+                background: $color-white;
             }
         }
 
@@ -2974,7 +2974,7 @@ section {
 
                 .tag-wrap {
                     .tit {
-                        @include font(3.2, 700, #fff);
+                        @include font(3.2, 700, $color-white);
                     }
                 }
 
@@ -2988,7 +2988,7 @@ section {
 
                     a {
                         padding: 0.4rem 1.2rem;
-                        @include font(1.7, 500, #fff);
+                        @include font(1.7, 500, $color-white);
                         background: rgba(255, 255, 255, 0.10);
                         backdrop-filter: blur(2px);
                     }
@@ -3032,7 +3032,7 @@ section {
 
                 .tit {
                     text-align: left;
-                    @include font(2.4, 700, #fff);
+                    @include font(2.4, 700, $color-white);
                 }
             }
 
@@ -3076,17 +3076,17 @@ section {
 
         .tab__item {
             text-align: center;
-            border: 1px solid #000;
-            @include font(1.8, 700, #05020F);
+            border: 1px solid $color-realblack;
+            @include font(1.8, 700, $color-black);
 
             &+.tab__item {
                 margin-top: 0.8rem;
             }
 
             &.active {
-                background: #05020F;
+                background: $color-black;
                 box-shadow: 4px 4px 16px 0 rgba(0, 0, 0, 0.25);
-                @include font(1.8, 700, #fff)
+                @include font(1.8, 700, $color-white)
             }
         }
 
@@ -3111,7 +3111,7 @@ section {
                     line-height: 3rem;
 
                     em {
-                        @include font(1.8, 600, #000);
+                        @include font(1.8, 600, $color-realblack);
                         position: relative;
                         display: inline-flex;
                         z-index: 2;
@@ -3158,16 +3158,16 @@ section {
                 .tit {
                     margin-top: 0.8rem;
                     text-align: center;
-                    @include font(1.8, 500, #545456);
+                    @include font(1.8, 500, $gray-600);
                 }
 
                 .txt {
                     text-align: center;
-                    @include font(1.6, 500, #545456);
+                    @include font(1.6, 500, $gray-600);
 
                     .count {
                         margin-right: 0.6rem;
-                        @include font(4, 700, #05020F);
+                        @include font(4, 700, $color-black);
                     }
                 }
             }
@@ -3184,7 +3184,7 @@ section {
         position: relative;
         overflow: hidden;
         height: 39rem;
-        background: #2C1F67 url(../image/main/se7__back.png) bottom/contain no-repeat;
+        background: $brand-primary url(../image/main/se7__back.png) bottom/contain no-repeat;
         display: flex;
         align-items: center;
 
@@ -3198,12 +3198,12 @@ section {
         }
 
         .tit {
-            @include font(2.8, 700, #fff);
+            @include font(2.8, 700, $color-white);
         }
 
         .txt {
             margin-top: 1.2rem;
-            @include font(1.8, 400, #fff);
+            @include font(1.8, 400, $color-white);
         }
 
         a {
@@ -3212,8 +3212,8 @@ section {
             display: inline-flex;
             align-items: center;
             padding: 0.8rem 2.4rem;
-            border: 1px solid #fff;
-            @include font(1.7, 500, #fff);
+            border: 1px solid $color-white;
+            @include font(1.7, 500, $color-white);
         }
 
     }
@@ -3279,12 +3279,12 @@ section {
 
         li {
             a {
-                @include font(1.7, 400, #fff);
+                @include font(1.7, 400, $color-white);
             }
 
             &.bold {
                 a {
-                    @include font(1.7, 600, #fff);
+                    @include font(1.7, 600, $color-white);
                 }
             }
         }
@@ -3433,7 +3433,7 @@ section {
                 span {
                     font-size: 2.6rem;
                     font-weight: 600;
-                    color: #fff;
+                    color: $color-white;
                     text-align: center;
                     display: block;
                 }
@@ -3515,7 +3515,7 @@ section {
                 a {
                     text-align: left;
                     display: block;
-                    @include font(2, 500, #fff);
+                    @include font(2, 500, $color-white);
                     line-height: 150%;
                     width: 100%;
                     position: relative;
@@ -3531,7 +3531,7 @@ section {
 
                             content: "";
                             position: absolute;
-                            border: 1px solid #000;
+                            border: 1px solid $color-realblack;
                             width: -webkit-fill-available;
                             bottom: -0.1rem;
                             left: auto;
@@ -3559,7 +3559,7 @@ section {
 
                 >a {
                     line-height: 150%;
-                    @include font(1.8, 400, #fff);
+                    @include font(1.8, 400, $color-white);
                     position: relative;
                     display: block;
                     padding-left: 0.9rem;
@@ -3568,7 +3568,7 @@ section {
                         content: '';
                         width: 0.2rem;
                         height: 0.2rem;
-                        background: #fff;
+                        background: $color-white;
                         position: absolute;
                         display: block;
                         left: 0;
@@ -3765,7 +3765,7 @@ section {
     &--list {
         .board-table__inner {
             position: relative;
-            border-top: 2px solid #05020f;
+            border-top: 2px solid $color-black;
         }
 
         .sch-form {
@@ -3783,14 +3783,14 @@ section {
 
             .sch-input {
                 width: 36rem;
-                background: #F7F7F7;
+                background: $gray-100;
                 padding: 0 1.6rem;
                 @include font(1.7, 400, #747474);
             }
 
             .sch-btn {
-                @include font(1.8, 500, #fff);
-                background: #05020F;
+                @include font(1.8, 500, $color-white);
+                background: $color-black;
                 margin-left: 0.8rem;
                 width: 9rem;
                 height: 100%;
@@ -3798,12 +3798,12 @@ section {
         }
 
         .custom-select {
-            background: #f7f7f7;
+            background: $gray-100;
 
             .select-selected {
                 border: none;
-                @include font(1.7, 400, #05020f);
-                background: #f7f7f7;
+                @include font(1.7, 400, $color-black);
+                background: $gray-100;
 
                 &:after {
                     width: 2.4rem;
@@ -3843,7 +3843,7 @@ section {
                     border-top: none;
 
                     .table-basic {
-                        border-top: 2px solid #000;
+                        border-top: 2px solid $color-realblack;
 
                         tbody {
                             >tr {
@@ -3927,7 +3927,7 @@ section {
                                         content: '';
                                         z-index: -1;
                                         display: block;
-                                        box-shadow: 3px 3px 13px 0px #00000014;
+                                        box-shadow: 3px 3px 13px 0px $color-realblack14;
                                         border-radius: 0.8rem;
                                         border: 1px solid #68A1FF;
                                         overflow: hidden;
@@ -3942,7 +3942,7 @@ section {
                                 }
 
                                 >th {
-                                    border-right: 1px solid #eaeaea;
+                                    border-right: 1px solid $border-secondary;
                                     background: transparent;
 
                                 }
@@ -3972,8 +3972,8 @@ section {
 
             &__top {
                 padding: 4rem 0;
-                border-top: 2px solid #05020f;
-                border-bottom: 1px solid #eaeaea;
+                border-top: 2px solid $color-black;
+                border-bottom: 1px solid $border-secondary;
                 position: relative;
                 display: flex;
                 -webkit-box-pack: center;
@@ -4010,12 +4010,12 @@ section {
 
                         &.ing {
                             background: #0E2D5B;
-                            color: #fff;
+                            color: $color-white;
                         }
 
                         &.end {
                             background: #404651;
-                            color: #fff;
+                            color: $color-white;
                         }
                     }
                 }
@@ -4032,11 +4032,11 @@ section {
                     }
 
                     span {
-                        @include font(1.8, 400, #747478);
+                        @include font(1.8, 400, $gray-500);
 
                         em {
                             margin-right: 0.4rem;
-                            @include font(1.8, 600, #747478);
+                            @include font(1.8, 600, $gray-500);
                         }
 
                         &+span {
@@ -4052,7 +4052,7 @@ section {
                                 transform: translateY(-50%);
                                 width: 0.1rem;
                                 height: 90%;
-                                background: #dadada;
+                                background: $border-primary;
                             }
                         }
                     }
@@ -4060,13 +4060,13 @@ section {
 
                 .board-detail__view {
                     padding: 0;
-                    border-top: 1px solid #eaeaea;
+                    border-top: 1px solid $border-secondary;
                 }
 
                 .board-detail__view-inner {
 
                     * {
-                        @include font(1.8, 300, #000);
+                        @include font(1.8, 300, $color-realblack);
                     }
 
                     a {
@@ -4093,7 +4093,7 @@ section {
         }
 
         .board-layout__table {
-            border-top: 2px solid #000;
+            border-top: 2px solid $color-realblack;
         }
 
         .refer::before {
@@ -4141,7 +4141,7 @@ section {
                     font-size: 18px;
                     border-radius: 0.8rem;
                     overflow: hidden;
-                    background: #fff;
+                    background: $color-white;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -4155,8 +4155,8 @@ section {
                 }
 
                 body {
-                    background: #000;
-                    color: #000;
+                    background: $color-realblack;
+                    color: $color-realblack;
                 }
 
                 .swiper {
@@ -4214,7 +4214,7 @@ section {
         }
 
         .board-layout__table {
-            border-top: 2px solid #000;
+            border-top: 2px solid $color-realblack;
 
         }
 
@@ -4297,9 +4297,9 @@ section {
                 &>tr {
                     &>th {
                         position: relative;
-                        color: #000;
+                        color: $color-realblack;
                         height: 4.8rem;
-                        border-bottom: 1px solid #dedede;
+                        border-bottom: 1px solid $gray-300;
                         border-left: none;
                         vertical-align: middle;
                         z-index: 2;
@@ -4315,7 +4315,7 @@ section {
 
                     &>td {
                         text-align: left;
-                        color: #000;
+                        color: $color-realblack;
                         padding: 0.8rem 1.2rem;
                     }
 
@@ -4369,11 +4369,11 @@ section {
 
         thead {
             th {
-                @include font(1.7, 500, #05020f);
+                @include font(1.7, 500, $color-black);
                 line-height: 160%;
                 vertical-align: middle;
                 text-align: center;
-                border-bottom: 1px solid #dedede;
+                border-bottom: 1px solid $gray-300;
                 border-top: none;
 
                 &:first-child,
@@ -4460,11 +4460,11 @@ section {
                         &.td-title {
                             a {
                                 font-weight: 600;
-                                color: #000;
+                                color: $color-realblack;
                             }
                         }
 
-                        @include font(1.6, 600, #000);
+                        @include font(1.6, 600, $color-realblack);
                         line-height: 2.8rem;
                     }
                 }
@@ -4506,7 +4506,7 @@ section {
                 text-align: center;
                 vertical-align: middle;
                 border-top: none;
-                border-bottom: 1px solid #dedede;
+                border-bottom: 1px solid $gray-300;
                 box-sizing: border-box;
                 @include font(1.6, 400, #111);
                 line-height: 160%;
@@ -4525,10 +4525,10 @@ section {
 
         .notice {
             .txt {
-                background: #F7F7F7;
+                background: $gray-100;
                 padding: 0.2rem 1.2rem;
                 line-height: 160%;
-                @include font(1.6, 500, #545456);
+                @include font(1.6, 500, $gray-600);
             }
         }
 
@@ -4587,7 +4587,7 @@ section {
                         font-weight: 500;
                         line-height: 3.7rem;
                         padding: 0 1.1rem;
-                        color: #fff;
+                        color: $color-white;
                         border-radius: 0.4rem;
                     }
 
@@ -4657,7 +4657,7 @@ section {
                     right: -0.5rem;
                     font-size: 1rem;
                     font-weight: 600;
-                    color: #000;
+                    color: $color-realblack;
                     /* padding: 0.5rem; */
                     -webkit-box-pack: center;
                     -ms-flex-pack: center;
@@ -4681,7 +4681,7 @@ section {
 
                     &__end {
                         background: #4568a9;
-                        color: #ffffff;
+                        color: $color-white;
                     }
                 }
             }
@@ -4714,7 +4714,7 @@ section {
                 tbody {
                     tr {
                         &:nth-child(1) {
-                            border-top: 1px solid #DEDEDE;
+                            border-top: 1px solid $gray-300;
                         }
                     }
                 }
@@ -4726,7 +4726,7 @@ section {
             }
 
             tr {
-                border-bottom: 1px solid #DEDEDE;
+                border-bottom: 1px solid $gray-300;
             }
 
             th,
@@ -4736,7 +4736,7 @@ section {
 
             th {
                 height: 7rem;
-                border-right: 1px solid #DEDEDE;
+                border-right: 1px solid $gray-300;
                 background: #ECF4FA;
             }
 
@@ -4789,7 +4789,7 @@ section {
                             top: 0;
                             font-size: 2.6rem;
                             line-height: 3.6rem;
-                            color: #fff;
+                            color: $color-white;
                             display: flex;
                             text-align: center;
                             font-weight: 600;
@@ -4878,7 +4878,7 @@ section {
                     }
 
                     .tit {
-                        @include font(2.2, 500, #000);
+                        @include font(2.2, 500, $color-realblack);
                         line-height: 150%;
                         text-align: left;
                         grid-column: 1/3;
@@ -4891,21 +4891,21 @@ section {
                         margin-top: 2rem;
                         grid-column: 1/2;
                         margin-right: auto;
-                        @include font(1.5, 400, #747478);
+                        @include font(1.5, 400, $gray-500);
                         line-height: 150%;
                     }
 
                     .view {
                         grid-column: 2/3;
                         margin-left: auto;
-                        @include font(1.5, 400, #747478);
+                        @include font(1.5, 400, $gray-500);
                         line-height: 150%;
                     }
 
                     .job {
                         padding: 0 0.8rem;
                         margin: 0 1.7rem;
-                        @include font(1.8, 300, #000);
+                        @include font(1.8, 300, $color-realblack);
 
                         &:before {
                             position: absolute;
@@ -4927,7 +4927,7 @@ section {
 
                     .country {
 
-                        @include font(1.8, 300, #000);
+                        @include font(1.8, 300, $color-realblack);
                     }
                 }
             }
@@ -4943,7 +4943,7 @@ section {
         .board-layout__table tbody td a.td-titlelink {
             display: block;
             text-align: center;
-            color: #000;
+            color: $color-realblack;
         }
 
     }
@@ -4965,7 +4965,7 @@ section {
 
         .tab__item {
             width: 3.6rem;
-            background: #fff;
+            background: $color-white;
             border: 1px solid rgba(218, 218, 218, 1);
             display: flex;
             align-items: center;
@@ -4989,8 +4989,8 @@ section {
             }
 
             &.active {
-                background: #05020F;
-                border: 1px solid #05020F;
+                background: $color-black;
+                border: 1px solid $color-black;
             }
 
         }
@@ -5044,18 +5044,18 @@ section {
 
             .value {
                 margin-top: 1.6rem;
-                @include font(1.6, 500, #2C1F67);
+                @include font(1.6, 500, $brand-primary);
                 line-height: 160%;
             }
 
             .tit {
-                @include font(2, 500, #05020F);
+                @include font(2, 500, $color-black);
                 line-height: 160%;
                 margin-top: 0.4rem;
             }
 
             .cate {
-                @include font(1.6, 400, #747478);
+                @include font(1.6, 400, $gray-500);
                 line-height: 160%;
                 width: 7.2rem;
                 margin-right: 0.8rem;
@@ -5063,7 +5063,7 @@ section {
 
             .txt {
                 width: calc(100% - 8rem);
-                @include font(1.6, 400, #05020F);
+                @include font(1.6, 400, $color-black);
                 line-height: 160%;
             }
         }
@@ -5080,7 +5080,7 @@ section {
     &--tabView {
         .board-detail {
             &__top {
-                border-bottom: 1px solid #eaeaea;
+                border-bottom: 1px solid $border-secondary;
                 position: relative;
                 display: flex;
                 justify-content: space-between;
@@ -5118,12 +5118,12 @@ section {
 
                         &.ing {
                             background: #0E2D5B;
-                            color: #fff;
+                            color: $color-white;
                         }
 
                         &.end {
                             background: #404651;
-                            color: #fff;
+                            color: $color-white;
                         }
                     }
                 }
@@ -5144,7 +5144,7 @@ section {
     }
 
     &__file {
-        border-top: 1px solid #eaeaea;
+        border-top: 1px solid $border-secondary;
 
         &__inner {
             padding: 2.4rem 0 4rem 0;
@@ -5155,7 +5155,7 @@ section {
             .board-file-tit {
                 width: 6.2rem;
                 text-align: center;
-                @include font(1.7, 600, #545456);
+                @include font(1.7, 600, $gray-600);
                 text-align: center;
                 display: flex;
                 justify-content: center;
@@ -5227,13 +5227,13 @@ section {
     &__view {
         &-inner {
             padding: 4rem 0;
-            @include font(1.8, 400, #000);
+            @include font(1.8, 400, $color-realblack);
             line-height: 3.2rem;
 
             .accordion {
                 width: 100%;
-                border-top: 1px solid #eaeaea;
-                border-bottom: 1px solid #eaeaea;
+                border-top: 1px solid $border-secondary;
+                border-bottom: 1px solid $border-secondary;
 
                 &+.btn-wrap {
                     margin-top: 6rem;
@@ -5241,7 +5241,7 @@ section {
 
                 &-item {
                     &+.accordion-item {
-                        border-top: 1px solid #eaeaea;
+                        border-top: 1px solid $border-secondary;
                     }
                 }
 
@@ -5380,7 +5380,7 @@ section {
 
     &__answer {
         .board-answer-tit {
-            @include font(2, 600, #000);
+            @include font(2, 600, $color-realblack);
             line-height: 2.8rem;
             padding-bottom: 1rem;
 
@@ -5390,11 +5390,11 @@ section {
         }
 
         .board-answer-view {
-            border-bottom: 1px solid #eaeaea;
+            border-bottom: 1px solid $border-secondary;
             background: #F8F9FB;
             padding-top: 2.1rem;
             position: relative;
-            border-top: 2px solid #000;
+            border-top: 2px solid $color-realblack;
         }
 
         .board-answer-view__top {
@@ -5411,11 +5411,11 @@ section {
 
             .txt {
                 width: 54.7rem;
-                @include font(1.6, 400, #000);
+                @include font(1.6, 400, $color-realblack);
                 line-height: 2.8rem;
 
                 >* {
-                    @include font(1.6, 400, #000);
+                    @include font(1.6, 400, $color-realblack);
                     line-height: 2.8rem;
                 }
             }
@@ -5496,7 +5496,7 @@ section {
 
         .board-detail__tit {
             font-weight: 600;
-            color: #000;
+            color: $color-realblack;
 
 
         }
@@ -5562,10 +5562,10 @@ section {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 3px solid #05020f;
+        border-bottom: 3px solid $color-black;
 
         .count-all {
-            @include font(1.6, 400, #05020F);
+            @include font(1.6, 400, $color-black);
             line-height: 100%;
             display: flex;
             align-items: flex-end;
@@ -5575,7 +5575,7 @@ section {
             span {
                 margin-left: 1.6rem;
                 margin-right: 0.4rem;
-                @include font(4.2, 600, #05020F);
+                @include font(4.2, 600, $color-black);
             }
         }
 
@@ -5602,15 +5602,15 @@ section {
             justify-content: center;
             align-items: center;
             gap: 10px;
-            background: #05020F;
+            background: $color-black;
         }
 
         .filter-toggle-btn {
             display: inline-block;
             padding: 0.7rem 1.2rem;
-            border: 1px solid #dadada;
+            border: 1px solid $border-primary;
             cursor: pointer;
-            background: #fff;
+            background: $color-white;
             margin-left: 3.6rem;
             position: relative;
 
@@ -5622,7 +5622,7 @@ section {
                 right: -4rem;
                 width: 0.2rem;
                 height: 3.2rem;
-                background: #eaeaea;
+                background: $border-secondary;
             }
         }
 
@@ -5649,8 +5649,8 @@ section {
 
 /* 필터 영역 */
 .filter-panel {
-    background: #fafafa;
-    border-bottom: 1px solid #eaeaea;
+    background: $gray-50;
+    border-bottom: 1px solid $border-secondary;
     display: grid;
 
     &.is-hidden {
@@ -5677,13 +5677,13 @@ section {
 
         &--main {
             padding: 1.6rem 4rem 1.6rem 4rem;
-            border-bottom: 1px solid #eaeaea;
+            border-bottom: 1px solid $border-secondary;
         }
 
         &__title {
             width: 6.4rem;
             margin-right: 2.4rem;
-            @include font(1.7, 500, #05020f);
+            @include font(1.7, 500, $color-black);
             margin-top: 0.8rem;
         }
 
@@ -5701,8 +5701,8 @@ section {
 
             .select-selected {
                 background: none;
-                border: 1px solid #eaeaea;
-                @include font(1.7, 400, #05020f);
+                border: 1px solid $border-secondary;
+                @include font(1.7, 400, $color-black);
                 line-height: 160%;
                 display: flex;
                 align-items: center;
@@ -5734,18 +5734,18 @@ section {
 
         .filter-btn {
             padding: 0 1.6rem;
-            border: 1px solid #eaeaea;
+            border: 1px solid $border-secondary;
             border-radius: 999px;
             cursor: pointer;
-            background: #fff;
+            background: $color-white;
             height: 4rem;
-            @include font(1.7, 400, #05020f);
+            @include font(1.7, 400, $color-black);
             display: flex;
             align-items: center;
             line-height: 160%;
 
             .count {
-                @include font(1.7, 400, #05020f);
+                @include font(1.7, 400, $color-black);
                 display: block;
                 line-height: 160%;
                 margin-left: 0.8rem;
@@ -5756,12 +5756,12 @@ section {
             &.active {
                 border-color: #333;
                 background: #333;
-                color: #fff;
+                color: $color-white;
 
                 .count {
                     border-color: #333;
                     background: #333;
-                    color: #fff;
+                    color: $color-white;
                 }
             }
         }
@@ -5782,9 +5782,9 @@ section {
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid #dadada;
+        border: 1px solid $border-primary;
         cursor: pointer;
-        background: #fff;
+        background: $color-white;
 
         img {
             width: 2.4rem;
@@ -5798,14 +5798,14 @@ section {
         gap: 0.8rem;
 
         .selected-tag {
-            background: #f7f7f7;
+            background: $gray-100;
             padding: 0 1.2rem;
             height: 3.4rem;
             border-radius: 20px;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            @include font(1.6, 400, #05020f);
+            @include font(1.6, 400, $color-black);
 
             button {
                 cursor: pointer;
@@ -5924,8 +5924,8 @@ section {
         }
 
         &.on:not(.link-move) {
-            @include font(1.7, 700, #05020f);
-            background: #f7f7f7;
+            @include font(1.7, 700, $color-black);
+            background: $gray-100;
             position: relative;
 
             &::after {
@@ -5934,7 +5934,7 @@ section {
                 bottom: 0.7rem;
                 width: 30%;
                 height: 0.2rem;
-                background: #05020f;
+                background: $color-black;
             }
         }
     }
@@ -5990,7 +5990,7 @@ section {
     }
 
     &__tit {
-        color: #FFF;
+        color: $color-white;
         font-size: 4.4rem;
         font-weight: 600;
         grid-row: 1/2;
@@ -6015,7 +6015,7 @@ section {
             padding-left: 3rem;
             font-size: 1.6rem;
             font-weight: 500;
-            color: #fff;
+            color: $color-white;
 
             +li {
                 background-image: url('../image/common/icon/icon_clampRight.png');
@@ -6037,7 +6037,7 @@ section {
 }
 
 .sub-tit {
-    @include font(3.8, 500, #000);
+    @include font(3.8, 500, $color-realblack);
     line-height: 150%;
     text-align: center;
 }
@@ -6077,7 +6077,7 @@ section {
             color: #555;
             font-weight: 400;
             border: 1px solid #d7d7d7;
-            background-color: #fff;
+            background-color: $color-white;
             background: url(../image/common/icon/search_select_arrow.png) no-repeat;
             background-size: 1.4rem;
 
@@ -6113,10 +6113,10 @@ section {
             padding-right: 2rem;
             border: 1px solid #E2E6ED;
             border-radius: 0.8rem;
-            @include font(1.6, 400, #000000);
+            @include font(1.6, 400, $color-realblack);
 
             &:focus-visible {
-                border: 1px solid #000;
+                border: 1px solid $color-realblack;
                 outline: none;
 
                 &~.sch-form__btn {
@@ -6359,7 +6359,7 @@ section {
                     width: 0.3rem;
                     height: 0.3rem;
                     border-radius: 999px;
-                    background: #747478;
+                    background: $gray-500;
                 }
             }
         }
@@ -6460,7 +6460,7 @@ section {
                 align-items: center;
                 width: 100%;
                 text-align: center;
-                @include font(1.8, 500, #fff);
+                @include font(1.8, 500, $color-white);
             }
         }
 
@@ -6497,7 +6497,7 @@ section {
     }
 
     &-tit {
-        @include font(4.8, 700, #fff);
+        @include font(4.8, 700, $color-white);
         text-align: center;
         text-shadow: 0 0 12px rgba(0, 0, 0, 0.85);
         font-family: GyeonggiBatang;
@@ -6516,7 +6516,7 @@ section {
 .custom-select.bread-sel {
     width: 24rem;
     height: 100%;
-    border-right: 1px solid #464648;
+    border-right: 1px solid $gray-700;
 
     .select-selected {
         height: 100%;
@@ -6553,7 +6553,7 @@ section {
 
             &.none {
                 >* {
-                    color: #a0a0a0;
+                    color: $text-disabled;
                 }
             }
         }
@@ -6567,8 +6567,8 @@ section {
         >* {
             display: flex;
             padding: 1.6rem 2.25rem;
-            border-top: 1px solid #eaeaea;
-            border-bottom: 1px solid #eaeaea;
+            border-top: 1px solid $border-secondary;
+            border-bottom: 1px solid $border-secondary;
 
             a {
                 @include ellipsis(1);
@@ -6665,7 +6665,7 @@ section {
             text-align: center;
             font-weight: 500;
             width: 8rem;
-            @include font(1.7, 400, #545456);
+            @include font(1.7, 400, $gray-600);
             border-radius: 0.4rem;
 
         }
@@ -6782,7 +6782,7 @@ section {
 
                 span {
                     position: relative;
-                    @include font(2, 500, #fff);
+                    @include font(2, 500, $color-white);
                     line-height: 150%;
 
                     &::after {
@@ -6844,7 +6844,7 @@ section {
                 position: relative;
 
                 &>a {
-                    color: #fff;
+                    color: $color-white;
                     font-size: 1.8rem;
                 }
 
@@ -6872,7 +6872,7 @@ section {
 
                             content: "";
                             position: absolute;
-                            border: 1px solid #000;
+                            border: 1px solid $color-realblack;
                             width: -webkit-fill-available;
                             bottom: -0.1rem;
                             left: auto;

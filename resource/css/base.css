@@ -622,7 +622,7 @@ body .f_medium {
 .btn-list {
   border: 1px solid #dadada;
   background: #fff;
-  color: #05020f;
+  color: #05020F;
 }
 .btn-list.small {
   width: 12.6rem;
@@ -641,7 +641,7 @@ body .f_medium {
   border-radius: 999px;
 }
 .btn-download.small {
-  background: #FFF url(../image/common/btn-download.svg) no-repeat 89%/1.8rem;
+  background: #fff url(../image/common/btn-download.svg) no-repeat 89%/1.8rem;
   width: 9.4rem;
   padding: 0 3rem 0 1rem;
   height: 2.9rem;
@@ -653,7 +653,7 @@ body .f_medium {
   background: #eee url(../image/common/btn-download--disabled.svg) no-repeat 89%/1.8rem !important;
 }
 .btn-download.large {
-  background: #FFF url(../image/common/btn-download.svg) no-repeat 89%/2rem;
+  background: #fff url(../image/common/btn-download.svg) no-repeat 89%/2rem;
   height: 4.4rem;
   font-size: 1.6rem;
   font-weight: 400;
@@ -1333,7 +1333,7 @@ body .f_medium {
     height: 2.9rem;
     line-height: 150%;
     font-size: 1.4rem;
-    background: #FFF url(../image/common/btn-download.svg) no-repeat 87%/1.8rem;
+    background: #fff url(../image/common/btn-download.svg) no-repeat 87%/1.8rem;
   }
   .btn-remove {
     border: 1px solid #E2E6ED;
