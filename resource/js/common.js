@@ -1,21 +1,14 @@
-// 두 개의 fetch 요청 완료 여부를 추적할 플래그 선언
+/* include 관련 js(개발하실 때 지워주시면 됩니다.)*/
 let isHeaderLoaded = false;
 let isFooterLoaded = false;
 
-
-
-
 function getIncludePath(fileName = 'header.html') {
-    // URL에 'yongin_archive'가 포함되어 있으면 "서버"
+
     const isLocal = !window.location.href.includes('yongin_archive');
-
-    // 로컬이면 루트 '/', 서버면 '/yongin_archive/'
     const projectRoot = isLocal ? '/' : '/yongin_archive/';
-
     return projectRoot + 'include/' + fileName;
 }
 
-// header 불러오기
 fetch(getIncludePath('header.html'))
     .then(res => {
         if (!res.ok) throw new Error('Header file not found');
@@ -24,25 +17,57 @@ fetch(getIncludePath('header.html'))
     .then(data => {
         document.querySelector('.header').innerHTML = data;
         isHeaderLoaded = true;
+
         initHeader();
         sideMenu();
 
-
-
-
+        var ele = $(".sub_header img,.sub_footer img")
+        var link = $(".sub_header a,.sub_footer a")
+        ele.each((i, v) => {
+            $(v).attr("src", $(v).attr("src").replace("././", "../../"));
+        })
+        link.each((i, v) => {
+            $(v).attr("href", $(v).attr("href").replace("././", "../../"));
+        })
     })
     .catch(err => console.error(err));
 
 
 
+fetch(getIncludePath('footer.html'))
+    .then(response => response.text())
+    .then(data => {
+        document.querySelector(".footer").innerHTML = data;
+        isFooterLoaded = true; // footer 로드 완료 표시
+        var ele = $(".sub_footer img")
+        var link = $(".sub_footer a")
+        ele.each((i, v) => {
+            $(v).attr("src", $(v).attr("src").replace("././", "../../"));
+        })
+        link.each((i, v) => {
+            $(v).attr("href", $(v).attr("href").replace("././", "../../"));
+        })
+    });
+
+/* //include 관련 js(개발하실 때 지워주시면 됩니다.)*/
 
 
 
+$(document).ready(function () {
+    initHeader();
+    simpleBar();
+    sideMenu();
+    swiperBox();
+    tabMenu();
+    accordion();
+    customSelect();
+    searchSection();
+    layerPopup();
+});
 
 
-// 헤더 관련
 function initHeader() {
-    const header = document.querySelector('.header');
+   const header = document.querySelector('.header');
     const depth1Items = document.querySelectorAll('.depth_1 > li');
     const naviBg = document.querySelector('.navi-bg');
     let isHovering = false;
@@ -52,47 +77,36 @@ function initHeader() {
         const headerRect = header.getBoundingClientRect();
         let maxBottom = headerRect.bottom;
 
-        // li 안의 모든 depth_2, depth_3 탐색
         const allDepths = li.querySelectorAll('.depth_2, .depth_3');
         allDepths.forEach(depth => {
             const rect = depth.getBoundingClientRect();
-            const style = window.getComputedStyle(depth);
-
-            // 마지막 자식 margin-bottom 포함
             const lastChild = depth.lastElementChild;
             let marginBottom = 0;
             if (lastChild) {
                 const lastChildStyle = window.getComputedStyle(lastChild);
                 marginBottom = parseFloat(lastChildStyle.marginBottom) || 0;
             }
-
             const totalBottom = rect.bottom + marginBottom;
             if (totalBottom > maxBottom) maxBottom = totalBottom;
         });
 
-        // li 자체의 padding-bottom도 포함
         const liStyle = window.getComputedStyle(li);
-        const paddingBottom = parseFloat(liStyle.paddingBottom) || 0;
-        const borderBottom = parseFloat(liStyle.borderBottomWidth) || 0;
-        maxBottom += paddingBottom + borderBottom;
+        maxBottom += parseFloat(liStyle.paddingBottom) || 0;
+        maxBottom += parseFloat(liStyle.borderBottomWidth) || 0;
 
         return maxBottom;
     }
 
     // navi-bg 높이 갱신
     function updateNaviBgHeight(li) {
+        if (!naviBg) return;
         const headerRect = header.getBoundingClientRect();
         const deepestBottom = getDeepestBottom(li);
         const totalHeight = deepestBottom - headerRect.top;
-
-        if (totalHeight > 0) {
-            naviBg.style.height = `${totalHeight}px`;
-        } else {
-            naviBg.style.height = '';
-        }
+        naviBg.style.height = totalHeight > 0 ? `${totalHeight}px` : '';
     }
 
-    // hover 이벤트
+    // depth1 hover
     depth1Items.forEach(li => {
         li.addEventListener('mouseenter', () => {
             depth1Items.forEach(i => i.classList.remove('active'));
@@ -101,33 +115,32 @@ function initHeader() {
             updateNaviBgHeight(li);
             isHovering = true;
         });
-
         li.addEventListener('mouseleave', () => {
             isHovering = false;
             setTimeout(() => {
                 if (!isHovering) {
                     li.classList.remove('active');
                     header.classList.remove('active');
-                    naviBg.style.height = '';
+                    if (naviBg) naviBg.style.height = '';
                 }
             }, 100);
         });
     });
 
     // navi-bg hover 유지
-    naviBg.addEventListener('mouseenter', () => {
-        isHovering = true;
-    });
-    naviBg.addEventListener('mouseleave', () => {
-        isHovering = false;
-        setTimeout(() => {
-            if (!isHovering) {
-                header.classList.remove('active');
-                depth1Items.forEach(li => li.classList.remove('active'));
-                naviBg.style.height = '';
-            }
-        }, 100);
-    });
+    if (naviBg) {
+        naviBg.addEventListener('mouseenter', () => { isHovering = true; });
+        naviBg.addEventListener('mouseleave', () => {
+            isHovering = false;
+            setTimeout(() => {
+                if (!isHovering) {
+                    header.classList.remove('active');
+                    depth1Items.forEach(li => li.classList.remove('active'));
+                    naviBg.style.height = '';
+                }
+            }, 100);
+        });
+    }
 
     // 새로고침 시 hover 복원
     window.addEventListener('load', () => {
@@ -138,49 +151,7 @@ function initHeader() {
             updateNaviBgHeight(hovered);
         }
     });
-
-
-    var ele = $(".sub_header img,.sub_footer img")
-    var link = $(".sub_header a,.sub_footer a")
-    ele.each((i, v) => {
-        $(v).attr("src", $(v).attr("src").replace("././", "../../"));
-    })
-    link.each((i, v) => {
-        $(v).attr("href", $(v).attr("href").replace("././", "../../"));
-    })
-
-
-
-
 }
-// footer fetch
-fetch(getIncludePath('footer.html'))
-    .then(response => response.text())
-    .then(data => {
-        document.querySelector(".footer").innerHTML = data;
-        isFooterLoaded = true; // footer 로드 완료 표시
-        initFooter();
-    });
-// 푸터 관련
-function initFooter() {
-    var ele = $(".sub_footer img")
-    var link = $(".sub_footer a")
-    ele.each((i, v) => {
-        $(v).attr("src", $(v).attr("src").replace("././", "../../"));
-    })
-    link.each((i, v) => {
-        $(v).attr("href", $(v).attr("href").replace("././", "../../"));
-    })
-}
-$(document).ready(function () {
-    simpleBar();
-    sideMenu();
-    swiperBox();
-    tabMenu();
-    accordion();
-    customSelect();
-    searchSection();
-});
 
 function simpleBar() {
     if (typeof SimpleBar !== 'undefined') { // SimpleBar가 정의되어 있을 때만 실행
@@ -417,30 +388,33 @@ function swiperBox() {
 }
 
 function tabMenu() {
-    const tabItems = document.querySelectorAll('.tab__item');
-    const tabContents = document.querySelectorAll('.tab__content');
-
-    tabItems.forEach(item => {
+    document.querySelectorAll('.tab__item').forEach(item => {
         item.addEventListener('click', () => {
+            const tabList = item.closest('.tab__list');
+            if (!tabList) return;
 
-            // 🚫 부모 .tab__list에 fake 클래스가 있으면 작동하지 않음
-            if (item.closest('.tab__list')?.classList.contains('fake')) return;
+            const groupId = tabList.dataset.tabGroup; // 탭 그룹 ID
+            const targetId = item.dataset.tab;
+            if (!targetId) return;
 
-            const target = item.getAttribute('data-tab');
+            // 같은 그룹의 탭 콘텐츠 찾기
+            const tabContents = document.querySelector(`.tab__contents[data-tab-group="${groupId}"]`);
+            if (!tabContents) return;
 
-            // 모든 탭 초기화
-            tabItems.forEach(i => i.classList.remove('active'));
-            tabContents.forEach(c => c.classList.remove('active'));
+            const groupTabItems = tabList.querySelectorAll('.tab__item');
+            const groupTabContents = tabContents.querySelectorAll('.tab__content');
 
-            // 클릭된 탭만 활성화
+            // 초기화
+            groupTabItems.forEach(i => i.classList.remove('active'));
+            groupTabContents.forEach(c => c.classList.remove('active'));
+
+            // 활성화
             item.classList.add('active');
-
-            // data-tab이 있는 경우에만 콘텐츠 활성화
-            if (target && document.getElementById(target)) {
-                document.getElementById(target).classList.add('active');
-            }
+            const targetContent = tabContents.querySelector(`#${targetId}`);
+            if (targetContent) targetContent.classList.add('active');
         });
     });
+
 
     function smoothScrollTo(targetElement, duration = 500) {
         const container = document.scrollingElement || document.documentElement;
@@ -464,10 +438,10 @@ function tabMenu() {
 
     // 부드러운 스크롤 easing 함수
     function easeInOutQuad(t, b, c, d) {
-        t /= d/2;
-        if (t < 1) return c/2*t*t + b;
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
         t--;
-        return -c/2 * (t*(t-2) - 1) + b;
+        return -c / 2 * (t * (t - 2) - 1) + b;
     }
 
     // 탭 클릭 이벤트
@@ -519,46 +493,49 @@ function accordion() {
 }
 
 function customSelect() {
-    function initCustomSelect(selector) {
-        const selects = document.querySelectorAll(selector);
+function initCustomSelect(selector) {
+    const selects = document.querySelectorAll(selector);
 
-        // 페이지 로드 시 옵션 숨기기
-        selects.forEach(select => {
-            const items = select.querySelector('.select-items');
-            if (items) items.classList.add('select-hide');
+    // 1️⃣ 페이지 로드 시 옵션 숨기기
+    selects.forEach(select => {
+        const items = select.querySelector('.select-items');
+        if (items) items.classList.add('select-hide');
+    });
+
+    selects.forEach(select => {
+        const selected = select.querySelector('.select-selected');
+        const items = select.querySelector('.select-items');
+        if (!selected || !items) return;
+
+        // 2️⃣ 클릭 시 toggle (독립적)
+        selected.addEventListener('click', e => {
+            e.stopPropagation();
+            items.classList.toggle('select-hide');
+            selected.classList.toggle('active');
         });
 
-        selects.forEach(select => {
-            const selected = select.querySelector('.select-selected');
-            const items = select.querySelector('.select-items');
-            if (!selected || !items) return;
+        // 3️⃣ 옵션 선택
+        items.querySelectorAll('div').forEach(option => {
+            option.addEventListener('click', e => {
+                // innerHTML 그대로 가져오기 (span.count 포함, 중첩 가능)
+                selected.innerHTML = option.innerHTML;
+                selected.dataset.value = option.dataset.value || option.textContent;
 
-            // 클릭 시 toggle (독립적)
-            selected.addEventListener('click', e => {
-                e.stopPropagation(); // 이벤트 버블링 방지
-                items.classList.toggle('select-hide');
-                selected.classList.toggle('active');
-            });
+                items.classList.add('select-hide');
+                selected.classList.remove('active');
 
-            // 옵션 선택
-            items.querySelectorAll('div').forEach(option => {
-                option.addEventListener('click', e => {
-                    selected.textContent = option.textContent;
-                    selected.dataset.value = option.dataset.value || option.textContent;
-                    items.classList.add('select-hide');
-                    selected.classList.remove('active');
-
-                    // 선택 후 콜백 (필요시)
-                    if (typeof updateSelectedTag === 'function') {
-                        updateSelectedTag(selected);
-                    }
-                });
+                // 선택 후 콜백
+                if (typeof updateSelectedTag === 'function') {
+                    updateSelectedTag(selected);
+                }
             });
         });
+    });
 
-        // 바깥 클릭 이벤트 제거: 더 이상 클릭 시 모든 select 닫히지 않음
-        // document.addEventListener('click', ...) 제거
-    }
+    // 4️⃣ 바깥 클릭 이벤트 제거: 더 이상 클릭 시 모든 select 닫히지 않음
+}
+
+
 
     // 그룹 초기화
     initCustomSelect('.bread-sel.custom-select');
@@ -570,90 +547,152 @@ function customSelect() {
 function searchSection() {
 
 
+    document.querySelectorAll('.sch-section').forEach(section => {
+        const filterButtons = section.querySelectorAll('.filter-btn');
+        const selectedContainers = section.querySelectorAll('.selected-filter__items');
+        const resetBtns = section.querySelectorAll('.reset-btn');
+        const filterToggleBtn = section.querySelector('.filter-toggle-btn');
+        const filterPanel = section.querySelector('.filter-panel');
+        const filterOpenBtns = section.querySelectorAll('.filter-open');
+        const filterPopup = section.querySelector('.filter-popup');
 
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const selectedContainer = document.querySelector('.selected-filter__items');
-    const resetBtn = document.querySelector('.reset-btn');
-    const filterToggleBtn = document.querySelector('.filter-toggle-btn');
-    const filterPanel = document.querySelector('.filter-panel');
+        let selectedFilters = [];
 
-    // 선택된 값 저장
-    let selectedFilters = [];
+        // 1️⃣ 필터 버튼 클릭 → 태그 추가/제거
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const value = btn.dataset.value;
+                if (!value) return;
+                btn.classList.toggle('active');
+                btn.classList.contains('active') ? addFilterTag(value) : removeFilterTag(value);
+            });
+        });
 
-    // 1️⃣ 필터 버튼 클릭
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const value = btn.dataset.value;
-            if (!value) return; // 안전 장치
-
-            if (btn.classList.contains('active')) {
-                btn.classList.remove('active');
-                removeFilterTag(value);
-            } else {
-                btn.classList.add('active');
-                addFilterTag(value);
+        function addFilterTag(value) {
+            if (!selectedFilters.includes(value)) {
+                selectedFilters.push(value);
+                renderTags();
             }
+        }
+
+        function removeFilterTag(value) {
+            selectedFilters = selectedFilters.filter(v => v !== value);
+            filterButtons.forEach(btn => { if (btn.dataset.value === value) btn.classList.remove('active'); });
+            renderTags();
+        }
+
+        function renderTags() {
+            selectedContainers.forEach(container => {
+                container.innerHTML = '';
+                selectedFilters.forEach(value => {
+                    const tag = document.createElement('span');
+                    tag.className = 'selected-tag';
+                    tag.innerHTML = `${value} <button class="tag-remove" data-value="${value}"></button>`;
+                    container.appendChild(tag);
+                });
+            });
+        }
+
+        selectedContainers.forEach(container => {
+            container.addEventListener('click', e => {
+                if (e.target.classList.contains('tag-remove')) removeFilterTag(e.target.dataset.value);
+            });
+        });
+
+        // 6️⃣ reset 버튼 클릭 → 초기화
+        resetBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                selectedFilters = [];
+                filterButtons.forEach(f => f.classList.remove('active'));
+                renderTags();
+            });
+        });
+
+        // 7️⃣ 패널 토글
+        if (filterToggleBtn && filterPanel) {
+            filterToggleBtn.addEventListener('click', () => {
+                filterToggleBtn.classList.toggle('is-hidden');
+                filterPanel.classList.toggle('is-hidden');
+            });
+        }
+
+        // 🚀 8️⃣ filter-open 클릭 시 → 해당 탭 정확히 열기
+        filterOpenBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (!filterPopup) return;
+                filterPopup.classList.add('is-active');
+
+                const targetTab = btn.dataset.openTab;  // ⭐ 클릭한 버튼의 data-open-tab 값
+                const tabGroup = filterPopup.dataset.tabGroup;
+                if (!tabGroup) return;
+
+                const tabList = filterPopup.querySelector(`.tab__list[data-tab-group="${tabGroup}"]`);
+                const tabContents = filterPopup.querySelector(`.tab__contents[data-tab-group="${tabGroup}"]`);
+                if (!tabList || !tabContents) return;
+
+                const tabItems = tabList.querySelectorAll('.tab__item');
+                const contentItems = tabContents.querySelectorAll('.tab__content');
+
+                // 기존 active 제거
+                tabItems.forEach(t => t.classList.remove('active'));
+                contentItems.forEach(c => c.classList.remove('active'));
+
+                // ⭐ 버튼과 이름이 같은 탭 자동 활성화
+                const activeTab = tabList.querySelector(`.tab__item[data-tab="${targetTab}"]`);
+                const activeContent = tabContents.querySelector(`#${targetTab}`);
+
+                if (activeTab) activeTab.classList.add('active');
+                if (activeContent) activeContent.classList.add('active');
+
+                // 🚀 탭 내부 클릭 기능도 유지
+                tabItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        const targetId = item.dataset.tab;
+                        tabItems.forEach(t => t.classList.remove('active'));
+                        contentItems.forEach(c => c.classList.remove('active'));
+                        item.classList.add('active');
+                        const targetContent = tabContents.querySelector(`#${targetId}`);
+                        if (targetContent) targetContent.classList.add('active');
+                    });
+                });
+            });
+        });
+
+        // 9️⃣ 팝업 닫기
+        const filterPopupBg = section.querySelector('.filter-popup-bg');
+        const filterPopupClose = section.querySelector('.filter-popup-close');
+        const closeFilterPopup = () => filterPopup?.classList.remove('is-active');
+
+        if (filterPopupBg) filterPopupBg.addEventListener('click', closeFilterPopup);
+        if (filterPopupClose) filterPopupClose.addEventListener('click', closeFilterPopup);
+    });
+}
+
+function layerPopup(){
+	// 모든 popup-open 버튼
+    document.querySelectorAll('.popup-open').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetTab = btn.dataset.tab;
+            if (!targetTab) return;
+
+            const popup = document.querySelector(`.popup-overlay[data-tab="${targetTab}"]`);
+            if (popup) popup.style.display = 'flex';
         });
     });
 
-    // 2️⃣ 태그 추가
-    function addFilterTag(value) {
-        if (!selectedFilters.includes(value)) {
-            selectedFilters.push(value);
-            renderTags();
-        }
-    }
-
-    // 3️⃣ 태그 제거
-    function removeFilterTag(value) {
-        selectedFilters = selectedFilters.filter(item => item !== value);
-
-        const btn = document.querySelector(`.filter-btn[data-value="${value}"]`);
-        if (btn) btn.classList.remove('active');
-
-        renderTags();
-    }
-
-    // 4️⃣ selected-tag 렌더링
-    function renderTags() {
-        if (!selectedContainer) return; // 요소 없으면 렌더 자체를 막음
-        selectedContainer.innerHTML = '';
-
-        selectedFilters.forEach(value => {
-            const tag = document.createElement('span');
-            tag.className = 'selected-tag';
-            tag.innerHTML = `${value} <button class="tag-remove" data-value="${value}"></button>`;
-            selectedContainer.appendChild(tag);
+    // 모든 popup-close 버튼
+    document.querySelectorAll('.popup-close, .popup-cancel').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const parentPopup = btn.closest('.popup-overlay');
+            if (parentPopup) parentPopup.style.display = 'none';
         });
-    }
+    });
 
-    // 5️⃣ 태그 X 버튼 클릭 (선택 영역이 있는 경우에만 실행)
-    if (selectedContainer) {
-        selectedContainer.addEventListener('click', e => {
-            const target = e.target;
-            if (target.classList.contains('tag-remove')) {
-                const value = target.dataset.value;
-                if (!value) return;
-                removeFilterTag(value);
-            }
+    // 오버레이 클릭 시 (팝업 바깥 영역)
+    document.querySelectorAll('.popup-overlay').forEach(overlay => {
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) overlay.style.display = 'none';
         });
-    }
-
-    // 6️⃣ 초기화 버튼 (있을 때만 실행)
-    if (resetBtn) {
-        resetBtn.addEventListener('click', () => {
-            selectedFilters = [];
-            document.querySelectorAll('.filter-btn.active').forEach(btn => btn.classList.remove('active'));
-            renderTags();
-        });
-    }
-
-    // 7️⃣ 필터 패널 토글 버튼 (있을 때만 실행)
-    if (filterToggleBtn && filterPanel) {
-        filterToggleBtn.addEventListener('click', () => {
-            filterPanel.classList.toggle('is-hidden');
-        });
-    }
-
+    });
 
 }

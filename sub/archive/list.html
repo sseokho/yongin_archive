@@ -62,25 +62,22 @@
                 <div class="sub-content__inner">
                     <div class="board-layout board-layout--tab">
 
-                        <div class="sch-section">
-
-                            <!-- 상단 정보 + 검색바 -->
+                        <!-- pc용 필터 //-->
+                        <div class="sch-section pc">
                             <div class="sch-section__info">
                                 <div class="count-wrap">
                                     <p class="count-all">전체 데이터 수<span>20,473</span>건</p>
                                 </div>
-                                <button class="filter-toggle-btn">필터 닫기</button>
+                                <button class="filter-toggle-btn is-hidden">
+                                    <span class="hide">필터 닫기</span>
+                                    <span class="active">필터 열기</span>
+                                </button>
                                 <div class="sch-bar sub">
                                     <input type="text" class="sch-input" placeholder="검색어를 입력해주세요">
                                     <button class="sch-btn"><img src="../../resource/image/sub/sch-btn.svg"></button>
                                 </div>
                             </div>
-
-                            
-                            
-
-                            <!-- 필터 영역 -->
-                            <div class="filter-panel">
+                            <div class="filter-panel is-hidden">
                                 <div class="filter-group filter-group--main">
                                     <div class="filter-group__item">
                                         <p class="filter-group__title">지역별</p>
@@ -89,14 +86,14 @@
                                                 <div class="select-selected">전체<span class="count">20,123</span></div>
                                                 <div class="select-items-wrapper">
                                                     <div class="select-items select-hide">
-                                                        <div data-value="option1">전체<span class="count">20,123</span></div>
-                                                        <div data-value="option2">풍덕천동<span class="count">20,123</span></div>
-                                                        <div data-value="option3">신봉동<span class="count">20,123</span></div>
-                                                        <div data-value="option4">죽전동<span class="count">20,123</span></div>
-                                                        <div data-value="option5">동천동<span class="count">20,123</span></div>
-                                                        <div data-value="option6">고기동<span class="count">20,123</span></div>
-                                                        <div data-value="option7">상현동<span class="count">20,123</span></div>
-                                                        <div data-value="option7">성복동<span class="count">20,123</span></div>
+                                                        <div data-value="option1">전체<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option2">수지구<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option3">처인구<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option4">기흥구<span class="count">20,123</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -104,25 +101,44 @@
                                                 <div class="select-selected">전체<span class="count">20,123</span></div>
                                                 <div class="select-items-wrapper">
                                                     <div class="select-items select-hide">
-                                                        <div data-value="option1">전체<span class="count">20,123</span></div>
-                                                        <div data-value="option2">신갈동<span class="count">20,123</span></div>
-                                                        <div data-value="option3">영덕동<span class="count">20,123</span></div>
-                                                        <div data-value="option4">하갈동<span class="count">20,123</span></div>
-                                                        <div data-value="option5">구갈동<span class="count">20,123</span></div>
-                                                        <div data-value="option6">상갈동<span class="count">20,123</span></div>
-                                                        <div data-value="option7">보라동<span class="count">20,123</span></div>
-                                                        <div data-value="option8">지곡동<span class="count">20,123</span></div>
-                                                        <div data-value="option9">공세동<span class="count">20,123</span></div>
-                                                        <div data-value="option10">고매동<span class="count">20,123</span></div>
-                                                        <div data-value="option11">서천동<span class="count">20,123</span></div>
-                                                        <div data-value="option12">농서동<span class="count">20,123</span></div>
-                                                        <div data-value="option13">언남동<span class="count">20,123</span></div>
-                                                        <div data-value="option14">청덕동<span class="count">20,123</span></div>
-                                                        <div data-value="option15">마북동<span class="count">20,123</span></div>
-                                                        <div data-value="option16">동백동<span class="count">20,123</span></div>
-                                                        <div data-value="option17">중동<span class="count">20,123</span></div>
-                                                        <div data-value="option18">상하동<span class="count">20,123</span></div>
-                                                        <div data-value="option18">보정동<span class="count">20,123</span></div>
+                                                        <div data-value="option1">전체<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option2">신갈동<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option3">영덕동<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option4">하갈동<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option5">구갈동<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option6">상갈동<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option7">보라동<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option8">지곡동<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option9">공세동<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option10">고매동<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option11">서천동<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option12">농서동<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option13">언남동<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option14">청덕동<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option15">마북동<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option16">동백동<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option17">중동<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option18">상하동<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option18">보정동<span class="count">20,123</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -130,24 +146,42 @@
                                                 <div class="select-selected">전체<span class="count">20,123</span></div>
                                                 <div class="select-items-wrapper">
                                                     <div class="select-items select-hide">
-                                                        <div data-value="option1">전체<span class="count">20,123<span></div>
-                                                        <div data-value="option2">포곡읍<span class="count">20,123<span></div>
-                                                        <div data-value="option3">모현읍<span class="count">20,123<span></div>
-                                                        <div data-value="option4">이동읍<span class="count">20,123<span></div>
-                                                        <div data-value="option5">남사읍<span class="count">20,123<span></div>
-                                                        <div data-value="option6">원삼면<span class="count">20,123<span></div>
-                                                        <div data-value="option7">백암면<span class="count">20,123<span></div>
-                                                        <div data-value="option8">양지면<span class="count">20,123<span></div>
-                                                        <div data-value="option9">김량장동<span class="count">20,123<span></div>
-                                                        <div data-value="option10">남동<span class="count">20,123<span></div>
-                                                        <div data-value="option11">역북동<span class="count">20,123<span></div>
-                                                        <div data-value="option12">삼가동<span class="count">20,123<span></div>
-                                                        <div data-value="option13">유방동<span class="count">20,123<span></div>
-                                                        <div data-value="option14">고림동<span class="count">20,123<span></div>
-                                                        <div data-value="option15">마평동<span class="count">20,123<span></div>
-                                                        <div data-value="option16">운학동<span class="count">20,123<span></div>
-                                                        <div data-value="option17">호동<span class="count">20,123<span></div>
-                                                        <div data-value="option18">해곡동<span class="count">20,123<span></div>
+                                                        <div data-value="option1">전체<span class="count">20,123<span>
+                                                        </div>
+                                                        <div data-value="option2">포곡읍<span class="count">20,123<span>
+                                                        </div>
+                                                        <div data-value="option3">모현읍<span class="count">20,123<span>
+                                                        </div>
+                                                        <div data-value="option4">이동읍<span class="count">20,123<span>
+                                                        </div>
+                                                        <div data-value="option5">남사읍<span class="count">20,123<span>
+                                                        </div>
+                                                        <div data-value="option6">원삼면<span class="count">20,123<span>
+                                                        </div>
+                                                        <div data-value="option7">백암면<span class="count">20,123<span>
+                                                        </div>
+                                                        <div data-value="option8">양지면<span class="count">20,123<span>
+                                                        </div>
+                                                        <div data-value="option9">김량장동<span class="count">20,123<span>
+                                                        </div>
+                                                        <div data-value="option10">남동<span class="count">20,123<span>
+                                                        </div>
+                                                        <div data-value="option11">역북동<span class="count">20,123<span>
+                                                        </div>
+                                                        <div data-value="option12">삼가동<span class="count">20,123<span>
+                                                        </div>
+                                                        <div data-value="option13">유방동<span class="count">20,123<span>
+                                                        </div>
+                                                        <div data-value="option14">고림동<span class="count">20,123<span>
+                                                        </div>
+                                                        <div data-value="option15">마평동<span class="count">20,123<span>
+                                                        </div>
+                                                        <div data-value="option16">운학동<span class="count">20,123<span>
+                                                        </div>
+                                                        <div data-value="option17">호동<span class="count">20,123<span>
+                                                        </div>
+                                                        <div data-value="option18">해곡동<span class="count">20,123<span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -160,17 +194,28 @@
                                                 <div class="select-selected">전체<span class="count">20,123</span></div>
                                                 <div class="select-items-wrapper">
                                                     <div class="select-items select-hide">
-                                                        <div data-value="option1">전체<span class="count">20,123</span></div>
-                                                        <div data-value="option2">사진<span class="count">20,123</span></div>
-                                                        <div data-value="option3">도서간행물<span class="count">20,123</span></div>
-                                                        <div data-value="option4">박물류<span class="count">20,123</span></div>
-                                                        <div data-value="option5">전자책<span class="count">20,123</span></div>
-                                                        <div data-value="option6">영상<span class="count">20,123</span></div>
-                                                        <div data-value="option7">지도<span class="count">20,123</span></div>
-                                                        <div data-value="option8">문서<span class="count">20,123</span></div>
-                                                        <div data-value="option9">고문헌<span class="count">20,123</span></div>
-                                                        <div data-value="option10">그림<span class="count">20,123</span></div>
-                                                        <div data-value="option11">기타<span class="count">20,123</span></div>
+                                                        <div data-value="option1">전체<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option2">사진<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option3">도서간행물<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option4">박물류<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option5">전자책<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option6">영상<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option7">지도<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option8">문서<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option9">고문헌<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option10">그림<span class="count">20,123</span>
+                                                        </div>
+                                                        <div data-value="option11">기타<span class="count">20,123</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -184,11 +229,16 @@
                                                 <div class="select-items-wrapper">
                                                     <div class="select-items select-hide">
                                                         <div data-value="option1">전체</div>
-                                                        <div data-value="option2">용인현 (1895년 이전)<span class="count">20,123</span></div>
-                                                        <div data-value="option3">용인군 (1895년~1944년)<span class="count">20,123</span></div>
-                                                        <div data-value="option3">용인군 (1945년~1995년)<span class="count">20,123</span></div>
-                                                        <div data-value="option3">용인시 (1996년~2022년)<span class="count">20,123</span></div>
-                                                        <div data-value="option3">용인특례시 (2022년 이후)<span class="count">20,123</span></div>
+                                                        <div data-value="option2">용인현 (1895년 이전)<span
+                                                                class="count">20,123</span></div>
+                                                        <div data-value="option3">용인군 (1895년~1944년)<span
+                                                                class="count">20,123</span></div>
+                                                        <div data-value="option3">용인군 (1945년~1995년)<span
+                                                                class="count">20,123</span></div>
+                                                        <div data-value="option3">용인시 (1996년~2022년)<span
+                                                                class="count">20,123</span></div>
+                                                        <div data-value="option3">용인특례시 (2022년 이후)<span
+                                                                class="count">20,123</span></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -196,56 +246,339 @@
                                     </div>
                                 </div>
 
-                                <!-- 카테고리 필터 버튼 -->
                                 <div class="filter-group">
                                     <p class="filter-group__title">카테고리</p>
                                     <div class="filter-btn-wrap">
                                         <button class="filter-btn" data-value="장소">장소 <span
                                                 class="count">2,342</span></button>
-                                        <button class="filter-btn" data-value="사건">사건 <span
+                                        <button class="filter-btn" data-value="사건">문화유산 <span
                                                 class="count">2,342</span></button>
                                         <button class="filter-btn" data-value="인물">인물 <span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="독립운동">독립운동<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="역사">역사<span
                                                 class="count">2,342</span></button>
                                     </div>
                                 </div>
 
-                                <!-- 컬렉션 필터 버튼 -->
                                 <div class="filter-group">
                                     <p class="filter-group__title">컬렉션</p>
                                     <div class="filter-btn-wrap">
-                                        <button class="filter-btn" data-value="기증자료">기증자료 <span
+                                        <button class="filter-btn" data-value="기증자료">기증자료<span
                                                 class="count">2,342</span></button>
-                                        <button class="filter-btn" data-value="문화유산">문화유산 <span
+                                        <button class="filter-btn" data-value="문화유산">문화유산<span
                                                 class="count">2,342</span></button>
-                                        <button class="filter-btn" data-value="구술자료">구술자료 <span
+                                        <button class="filter-btn" data-value="독립운동">독립운동<span
                                                 class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="구술자료">구술자료<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="역사">역사<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="마을지">마을지<span
+                                                class="count">2,342</span></button>
+                                    </div>
+                                </div>
+
+                                <div class="filter-group">
+                                    <p class="filter-group__title">시대</p>
+                                    <div class="filter-btn-wrap">
+                                        <button class="filter-btn" data-value="현대">현대<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="일제강점기">일제강점기<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="근대">근대<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="조선시대">조선시대<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="조선시대 이전">조선시대 이전<span
+                                                class="count">2,342</span></button>
+                                    </div>
+                                </div>
+
+                                <div class="filter-group">
+                                    <p class="filter-group__title">연계 주제</p>
+                                    <div class="filter-btn-wrap">
+                                        <button class="filter-btn" data-value="건축유적">건축유적<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="교육">교육<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="동식물">동식물<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="마을경관">마을경관<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="문화예술">문화예술<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="민속">민속<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="문화유산">문화유산<span
+                                                class="count">1,233</span></button>
+                                        <button class="filter-btn" data-value="생활">생활<span
+                                                class="count">1,233</span></button>
+                                        <button class="filter-btn" data-value="서화">서화<span
+                                                class="count">1,233</span></button>
+                                        <button class="filter-btn" data-value="언론">언론<span
+                                                class="count">235</span></button>
+                                        <button class="filter-btn" data-value="역사">역사<span
+                                                class="count">235</span></button>
+                                        <button class="filter-btn" data-value="종교">종교<span
+                                                class="count">235</span></button>
+                                        <button class="filter-btn" data-value="주민">주민<span
+                                                class="count">235</span></button>
+                                        <button class="filter-btn" data-value="향토지">향토지<span
+                                                class="count">235</span></button>
+
                                     </div>
                                 </div>
 
                             </div>
+                            <div class="selected-filter">
+                                <button class="reset-btn"><img src="../../resource/image/sub/reset-btn.svg"></button>
+                                <div class="selected-filter__items"></div>
+                            </div>
+                        </div>
 
-                            <!-- 선택된 필터 표시 -->
+                        <!-- 모바일용 필터 -->
+                        <div class="sch-section mo">
+                            <div class="sch-section__info">
+
+
+                                <div class="sch-bar sub">
+                                    <input type="text" class="sch-input" placeholder="검색어를 입력해주세요">
+                                    <button class="sch-btn"><img src="../../resource/image/sub/sch-btn.svg"></button>
+                                </div>
+                            </div>
+                            <div class="filter-panel">
+                                <div class="filter-group">
+                                    <p class="filter-group__title">카테고리</p>
+                                    <div class="filter-btn-wrap">
+                                        <button class="filter-btn" data-value="장소">장소 <span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="사건">문화유산 <span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="인물">인물 <span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="독립운동">독립운동<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="역사">역사<span
+                                                class="count">2,342</span></button>
+                                    </div>
+                                </div>
+
+                                <div class="filter-group">
+                                    <p class="filter-group__title">컬렉션</p>
+                                    <div class="filter-btn-wrap">
+                                        <button class="filter-btn" data-value="기증자료">기증자료<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="문화유산">문화유산<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="독립운동">독립운동<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="구술자료">구술자료<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="역사">역사<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="마을지">마을지<span
+                                                class="count">2,342</span></button>
+                                    </div>
+                                </div>
+
+                                <div class="filter-group">
+                                    <p class="filter-group__title">시대</p>
+                                    <div class="filter-btn-wrap">
+                                        <button class="filter-btn" data-value="현대">현대<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="일제강점기">일제강점기<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="근대">근대<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="조선시대">조선시대<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="조선시대 이전">조선시대 이전<span
+                                                class="count">2,342</span></button>
+                                    </div>
+                                </div>
+
+                                <div class="filter-group">
+                                    <p class="filter-group__title">연계 주제</p>
+                                    <div class="filter-btn-wrap">
+                                        <button class="filter-btn" data-value="건축유적">건축유적<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="교육">교육<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="동식물">동식물<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="마을경관">마을경관<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="문화예술">문화예술<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="민속">민속<span
+                                                class="count">2,342</span></button>
+                                        <button class="filter-btn" data-value="문화유산">문화유산<span
+                                                class="count">1,233</span></button>
+                                        <button class="filter-btn" data-value="생활">생활<span
+                                                class="count">1,233</span></button>
+                                        <button class="filter-btn" data-value="서화">서화<span
+                                                class="count">1,233</span></button>
+                                        <button class="filter-btn" data-value="언론">언론<span
+                                                class="count">235</span></button>
+                                        <button class="filter-btn" data-value="역사">역사<span
+                                                class="count">235</span></button>
+                                        <button class="filter-btn" data-value="종교">종교<span
+                                                class="count">235</span></button>
+                                        <button class="filter-btn" data-value="주민">주민<span
+                                                class="count">235</span></button>
+                                        <button class="filter-btn" data-value="향토지">향토지<span
+                                                class="count">235</span></button>
+
+                                    </div>
+                                </div>
+
+                                <div class="filter-group filter-group--main">
+                                    <div class="filter-group__item">
+                                        <button type="button" class="filter-open" data-open-tab="tab1">지역별</button>
+                                        <button type="button" class="filter-open" data-open-tab="tab2">유형별</button>
+                                        <button type="button" class="filter-open" data-open-tab="tab3">연대별</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="filter-toggle-btn is-hidden">
+                                <span class="hide">필터 닫기</span>
+                                <span class="active">필터 열기</span>
+                            </button>
+
                             <div class="selected-filter">
                                 <button class="reset-btn"><img src="../../resource/image/sub/reset-btn.svg"></button>
                                 <div class="selected-filter__items"></div>
                             </div>
 
+
+
+                            <div class="filter-popup" data-tab-group="filter-popup">
+                                <div class="filter-popup-bg"></div>
+                                <div class="filter-popup__inner">
+                                    <div class="filter-popup-header">
+                                        <p>필터</p>
+                                        <button type="button" class="filter-popup-close">
+                                            <img src="../../resource/image/sub/filter-popup-close.svg" />
+                                        </button>
+                                    </div>
+
+                                    <div class="filter-popup-body">
+                                        <ul class="tab__list" data-tab-group="filter-popup">
+                                            <li class="tab__item active" data-tab="tab1">지역별</li>
+                                            <li class="tab__item" data-tab="tab2">유형별</li>
+                                            <li class="tab__item" data-tab="tab3">연대별</li>
+                                        </ul>
+                                        <div class="tab__contents" data-tab-group="filter-popup">
+                                            <div class="selected-filter__items"></div>
+                                            <div class="tab-scroll-zone">
+                                                <div class="tab__content active" id="tab1">
+                                                    <div class="filter-group">
+                                                        <p class="filter-group__title">컬렉션</p>
+                                                        <div class="filter-btn-wrap">
+                                                            <button class="filter-btn" data-value="기증자료">기증자료<span
+                                                                    class="count">2,342</span></button>
+                                                            <button class="filter-btn" data-value="문화유산">문화유산<span
+                                                                    class="count">2,342</span></button>
+                                                            <button class="filter-btn" data-value="독립운동">독립운동<span
+                                                                    class="count">2,342</span></button>
+                                                            <button class="filter-btn" data-value="구술자료">구술자료<span
+                                                                    class="count">2,342</span></button>
+                                                            <button class="filter-btn" data-value="역사">역사<span
+                                                                    class="count">2,342</span></button>
+                                                            <button class="filter-btn" data-value="마을지">마을지<span
+                                                                    class="count">2,342</span></button>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="filter-group">
+                                                        <p class="filter-group__title">시대</p>
+                                                        <div class="filter-btn-wrap">
+                                                            <button class="filter-btn" data-value="현대">현대<span
+                                                                    class="count">2,342</span></button>
+                                                            <button class="filter-btn" data-value="일제강점기">일제강점기<span
+                                                                    class="count">2,342</span></button>
+                                                            <button class="filter-btn" data-value="근대">근대<span
+                                                                    class="count">2,342</span></button>
+                                                            <button class="filter-btn" data-value="조선시대">조선시대<span
+                                                                    class="count">2,342</span></button>
+                                                            <button class="filter-btn" data-value="조선시대 이전">조선시대 이전<span
+                                                                    class="count">2,342</span></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab__content" id="tab2">
+                                                    <div class="filter-group">
+                                                        <p class="filter-group__title">컬렉션</p>
+                                                        <div class="filter-btn-wrap">
+                                                            <button class="filter-btn" data-value="기증자료">기증자료<span
+                                                                    class="count">2,342</span></button>
+                                                            <button class="filter-btn" data-value="문화유산">문화유산<span
+                                                                    class="count">2,342</span></button>
+                                                            <button class="filter-btn" data-value="독립운동">독립운동<span
+                                                                    class="count">2,342</span></button>
+                                                            <button class="filter-btn" data-value="구술자료">구술자료<span
+                                                                    class="count">2,342</span></button>
+                                                            <button class="filter-btn" data-value="역사">역사<span
+                                                                    class="count">2,342</span></button>
+                                                            <button class="filter-btn" data-value="마을지">마을지<span
+                                                                    class="count">2,342</span></button>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="filter-group">
+                                                        <p class="filter-group__title">시대</p>
+                                                        <div class="filter-btn-wrap">
+                                                            <button class="filter-btn" data-value="현대">현대<span
+                                                                    class="count">2,342</span></button>
+                                                            <button class="filter-btn" data-value="일제강점기">일제강점기<span
+                                                                    class="count">2,342</span></button>
+                                                            <button class="filter-btn" data-value="근대">근대<span
+                                                                    class="count">2,342</span></button>
+                                                            <button class="filter-btn" data-value="조선시대">조선시대<span
+                                                                    class="count">2,342</span></button>
+                                                            <button class="filter-btn" data-value="조선시대 이전">조선시대 이전<span
+                                                                    class="count">2,342</span></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab__content" id="tab3">
+                                                    <p>탭 3의 내용입니다.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="filter-popup-bottom">
+                                        <button class="reset-btn"><img
+                                                src="../../resource/image/sub/reset-btn.svg"></button>
+                                        <div class="count-wrap">
+                                            <button class="count-all"><span>100,253</span>개의 검색결과 보기</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-
 
                         <div class="sch-wrap">
                             <div class="count-wrap">
                                 <p class="count-all">전체<span>20,473</span>건</p>
                             </div>
-                            <ul class="tab__list">
+                            <ul class="tab__list" data-tab-group="group1">
                                 <li class="tab__item active" data-tab="tab1"><img
                                         src="../../resource/image/sub/board-tab--01.svg"></li>
                                 <li class="tab__item" data-tab="tab2"><img
                                         src="../../resource/image/sub/board-tab--02.svg"></li>
                             </ul>
                         </div>
-                        <div class="tab__contents">
+                        <!-- 등록된 글이 없을 때(tab__contents, pagination-wrap 사라지면 됩니다.)
+                        <div class="no-data">
+                            <p class="txt">검색 결과가 존재하지 않습니다.</p>
+                        </div>
+                        //-->
+                        <div class="tab__contents" data-tab-group="group1">
                             <div class="tab__content active" id="tab1">
                                 <div class="board-layout__thumb basic">
                                     <div class="board-thumb__inner">
@@ -261,8 +594,48 @@
                                             <li>
                                                 <a href="javascript:void(0)">
                                                     <span class="img-wrap"><img
-                                                            src="../../resource/image/sub/board-thumb--01.jpg"></span>
-                                                    <p class="tit">동부지역의 구비전승</p>
+                                                            src="../../resource/image/sub/board-thumb--02.jpg"></span>
+                                                    <p class="tit">독성·죽능·고당리</p>
+                                                    <p class="date">2025-10-23</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap"><img
+                                                            src="../../resource/image/sub/board-thumb--03.jpg"></span>
+                                                    <p class="tit">구술생애사 13집</p>
+                                                    <p class="date">2025-10-23</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap"><img
+                                                            src="../../resource/image/sub/board-thumb--04.jpg"></span>
+                                                    <p class="tit">보정동</p>
+                                                    <p class="date">2025-10-23</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap"><img
+                                                            src="../../resource/image/sub/board-thumb--05.jpg"></span>
+                                                    <p class="tit">독성·죽능·고당리</p>
+                                                    <p class="date">2025-10-23</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap"><img
+                                                            src="../../resource/image/sub/board-thumb--04.jpg"></span>
+                                                    <p class="tit">보정동</p>
+                                                    <p class="date">2025-10-23</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap"><img
+                                                            src="../../resource/image/sub/board-thumb--05.jpg"></span>
+                                                    <p class="tit">구술생애사제5집</p>
                                                     <p class="date">2025-10-23</p>
                                                 </a>
                                             </li>
@@ -271,6 +644,94 @@
                                                     <span class="img-wrap"><img
                                                             src="../../resource/image/sub/board-thumb--01.jpg"></span>
                                                     <p class="tit">동부지역의 구비전승</p>
+                                                    <p class="date">2025-10-23</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap"><img
+                                                            src="../../resource/image/sub/board-thumb--03.jpg"></span>
+                                                    <p class="tit">구술생애사 13집</p>
+                                                    <p class="date">2025-10-23</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap"><img
+                                                            src="../../resource/image/sub/board-thumb--05.jpg"></span>
+                                                    <p class="tit">구술생애사제5집</p>
+                                                    <p class="date">2025-10-23</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap"><img
+                                                            src="../../resource/image/sub/board-thumb--02.jpg"></span>
+                                                    <p class="tit">보정동</p>
+                                                    <p class="date">2025-10-23</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap"><img
+                                                            src="../../resource/image/sub/board-thumb--01.jpg"></span>
+                                                    <p class="tit">동부지역의 구비전승</p>
+                                                    <p class="date">2025-10-23</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap"><img
+                                                            src="../../resource/image/sub/board-thumb--03.jpg"></span>
+                                                    <p class="tit">구술생애사 13집</p>
+                                                    <p class="date">2025-10-23</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap"><img
+                                                            src="../../resource/image/sub/board-thumb--05.jpg"></span>
+                                                    <p class="tit">구술생애사제5집</p>
+                                                    <p class="date">2025-10-23</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap"><img
+                                                            src="../../resource/image/sub/board-thumb--04.jpg"></span>
+                                                    <p class="tit">구술생애사제5집</p>
+                                                    <p class="date">2025-10-23</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap"><img
+                                                            src="../../resource/image/sub/board-thumb--01.jpg"></span>
+                                                    <p class="tit">보정동</p>
+                                                    <p class="date">2025-10-23</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap"><img
+                                                            src="../../resource/image/sub/board-thumb--04.jpg"></span>
+                                                    <p class="tit">구술생애사제5집</p>
+                                                    <p class="date">2025-10-23</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap"><img
+                                                            src="../../resource/image/sub/board-thumb--01.jpg"></span>
+                                                    <p class="tit">동부지역의 구비전승</p>
+                                                    <p class="date">2025-10-23</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap"><img
+                                                            src="../../resource/image/sub/board-thumb--03.jpg"></span>
+                                                    <p class="tit">구술생애사 13집</p>
                                                     <p class="date">2025-10-23</p>
                                                 </a>
                                             </li>
@@ -293,7 +754,7 @@
                                             <li>
                                                 <a href="javascript:void(0)">
                                                     <span class="img-wrap">
-                                                        <img src="../../resource/image/sub/board-thumb--01.jpg">
+                                                        <img src="../../resource/image/sub/board-thumb--04.jpg">
                                                     </span>
                                                     <div class="explan">
                                                         <p class="value">마을지</p>
@@ -359,11 +820,176 @@
                                             <li>
                                                 <a href="javascript:void(0)">
                                                     <span class="img-wrap">
-                                                        <img src="../../resource/image/sub/board-thumb--01.jpg">
+                                                        <img src="../../resource/image/sub/board-thumb--03.jpg">
+                                                    </span>
+                                                    <div class="explan">
+                                                        <p class="value">구술사</p>
+                                                        <p class="tit">구술생애사 13집</p>
+                                                        <ul>
+                                                            <li>
+                                                                <span class="cate">주제</span>
+                                                                <span class="txt">2025-10-23</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">서명</span>
+                                                                <span class="txt">구술생애자료집XI</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">관련연대</span>
+                                                                <span class="txt">2020년대</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">생산자</span>
+                                                                <span class="txt">용인문화원부설 용인학연구소</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">시리즈</span>
+                                                                <span class="txt">서정3세대동인시 제02집</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap">
+                                                        <img src="../../resource/image/sub/board-thumb--11.jpg">
+                                                    </span>
+                                                    <div class="explan">
+                                                        <p class="value">문화도시용인</p>
+                                                        <p class="tit">문화도시 용인</p>
+                                                        <ul>
+                                                            <li>
+                                                                <span class="cate">주제</span>
+                                                                <span class="txt">2025-10-23</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">서명</span>
+                                                                <span class="txt">구술생애자료집XI</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">관련연대</span>
+                                                                <span class="txt">2020년대</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">생산자</span>
+                                                                <span class="txt">용인문화원부설 용인학연구소</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">시리즈</span>
+                                                                <span class="txt">서정3세대동인시 제02집</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap">
+                                                        <img src="../../resource/image/sub/board-thumb--05.jpg">
+                                                    </span>
+                                                    <div class="explan">
+                                                        <p class="value">구술사</p>
+                                                        <p class="tit">구술생애사제5집</p>
+                                                        <ul>
+                                                            <li>
+                                                                <span class="cate">주제</span>
+                                                                <span class="txt">2025-10-23</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">서명</span>
+                                                                <span class="txt">구술생애자료집XI</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">관련연대</span>
+                                                                <span class="txt">2020년대</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">생산자</span>
+                                                                <span class="txt">용인문화원부설 용인학연구소</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">시리즈</span>
+                                                                <span class="txt">서정3세대동인시 제02집</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap">
+                                                        <img src="../../resource/image/sub/board-thumb--02.jpg">
+                                                    </span>
+                                                    <div class="explan">
+                                                        <p class="value">마을지</p>
+                                                        <p class="tit">독성·죽능·고당리</p>
+                                                        <ul>
+                                                            <li>
+                                                                <span class="cate">주제</span>
+                                                                <span class="txt">2025-10-23</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">서명</span>
+                                                                <span class="txt">구술생애자료집XI</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">관련연대</span>
+                                                                <span class="txt">2020년대</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">생산자</span>
+                                                                <span class="txt">용인문화원부설 용인학연구소</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">시리즈</span>
+                                                                <span class="txt">서정3세대동인시 제02집</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap">
+                                                        <img src="../../resource/image/sub/board-thumb--04.jpg">
                                                     </span>
                                                     <div class="explan">
                                                         <p class="value">마을지</p>
                                                         <p class="tit">보정동</p>
+                                                        <ul>
+                                                            <li>
+                                                                <span class="cate">주제</span>
+                                                                <span class="txt">2025-10-23</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">서명</span>
+                                                                <span class="txt">구술생애자료집XI</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">관련연대</span>
+                                                                <span class="txt">2020년대</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">생산자</span>
+                                                                <span class="txt">용인문화원부설 용인학연구소</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">시리즈</span>
+                                                                <span class="txt">서정3세대동인시 제02집</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap">
+                                                        <img src="../../resource/image/sub/board-thumb--03.jpg">
+                                                    </span>
+                                                    <div class="explan">
+                                                        <p class="value">구술사</p>
+                                                        <p class="tit">구술생애사 13집</p>
                                                         <ul>
                                                             <li>
                                                                 <span class="cate">주제</span>
@@ -397,6 +1023,39 @@
                                                     <div class="explan">
                                                         <p class="value">마을지</p>
                                                         <p class="tit">보정동</p>
+                                                        <ul>
+                                                            <li>
+                                                                <span class="cate">주제</span>
+                                                                <span class="txt">2025-10-23</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">서명</span>
+                                                                <span class="txt">구술생애자료집XI</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">관련연대</span>
+                                                                <span class="txt">2020년대</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">생산자</span>
+                                                                <span class="txt">용인문화원부설 용인학연구소</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="cate">시리즈</span>
+                                                                <span class="txt">서정3세대동인시 제02집</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">
+                                                    <span class="img-wrap">
+                                                        <img src="../../resource/image/sub/board-thumb--11.jpg">
+                                                    </span>
+                                                    <div class="explan">
+                                                        <p class="value">문화도시용인</p>
+                                                        <p class="tit">문화도시 용인</p>
                                                         <ul>
                                                             <li>
                                                                 <span class="cate">주제</span>
@@ -454,6 +1113,7 @@
         <!-- footer -->
         <footer class="footer sub_footer"></footer>
         <!-- //footer -->
+
     </div>
 </body>
 <script type="text/javascript" src="../../resource/js/jquery-1.12.4.min.js"></script>

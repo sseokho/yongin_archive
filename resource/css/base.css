@@ -259,6 +259,10 @@ button {
   -webkit-appearance: none;
 }
 
+.img-wrap {
+  display: block;
+}
+
 /* //reset */
 /* color */
 .primary400 {
