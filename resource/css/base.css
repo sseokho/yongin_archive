@@ -620,7 +620,7 @@ body .f_medium {
   line-height: 3.4rem;
 }
 .btn-list {
-  border: 1px solid #dadada;
+  border: 1px solid #DADADA;
   background: #fff;
   color: #05020F;
 }
@@ -1282,12 +1282,12 @@ body .f_medium {
     border-color: #92A1BF;
   }
   .btn-write:hover, .btn-write:focus {
-    border-color: #000A1F;
-    background: #000A1F;
+    border-color: #000;
+    background: #000;
   }
   .btn-regist:hover, .btn-regist:focus {
-    border-color: #000A1F;
-    background: #000A1F;
+    border-color: #000;
+    background: #000;
   }
   .btn-temporary:hover, .btn-temporary:focus {
     border-color: #637697;
@@ -1299,12 +1299,12 @@ body .f_medium {
     color: #fff;
   }
   .btn-writeCom:hover, .btn-writeCom:focus {
-    border-color: #000A1F;
-    background: #000A1F;
+    border-color: #000;
+    background: #000;
   }
   .btn-login:hover, .btn-login:focus {
-    border-color: #000A1F;
-    background: #000A1F;
+    border-color: #000;
+    background: #000;
   }
 }
 @media (min-width: 320px) and (max-width: 1024px) {
