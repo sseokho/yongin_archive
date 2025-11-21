@@ -80,52 +80,82 @@
 
                                 <div class="board-detail__summary--top">
                                     <div class="summary--top--left">
-                                        <span class="board-detail__cate">역사</span>
-                                        <p class="board-detail__tit">구술생애사제5집</p>
+                                        <span class="summary__cate">역사</span>
+                                        <p class="summary__tit">구술생애사제5집</p>
                                     </div>
 
                                     <ul class="summary--top--right">
                                         <li class="copy">
-                                            <button type="button"></button>
+                                            <button type="button">URL 복사</button>
                                         </li>
                                         <li class="download">
-                                            <button type="button"></button>
+                                            <button type="button">자료 다운로드</button>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="board-detail__summary--bottom">
-                                    <div class="board-detail__summary-inner">
-                                        <div class="board-detail__summary--img">
+                                    <div class="summary--bottom-inner">
+                                        <div class="summary--bottom--img">
                                             <span>
                                                 <img src="../../resource/image/sub/notice-img.jpg">
                                             </span>
+                                            <button type="button" class="btn-pdf">크게보기</button>
                                         </div>
-                                        <div class="board-detail__summary--txt">
-                                            <div class="summary-top">
-                                                <a class="summary-top__link">연계 항목 보기</a>
-                                                <a class="summary-top__link">연계 이미지 보기</a>
+                                        <div class="summary--bottom--txt">
+                                            <div class="summary--bottom-linkWrap">
+                                                <a class="summary--bottom__link content" href="javascript:void(0)">연계 항목 보기</a>
+                                                <a class="summary--bottom__link img" href="javascript:void(0)">연계 이미지 보기</a>
                                             </div>
-                                            <ul>
+                                            <ul class="summary--bottom-list">
+                                                <li>
+                                                    <span class="cate">유형분류</span>
+                                                    <span class="txt">도서간행물</span>
+                                                </li>
+                                                <li>
+                                                    <span class="cate">도서파일명</span>
+                                                    <span class="txt">tbk5#b04-b</span>
+                                                </li>
+                                                <li>
+                                                    <span class="cate">인물</span>
+                                                    <span class="txt">해당없음</span>
+                                                </li>
                                                 <li>
                                                     <span class="cate">주제</span>
-                                                    <span class="txt">2025-10-23</span>
-                                                </li>
-                                                <li>
-                                                    <span class="cate">서명</span>
-                                                    <span class="txt">구술생애자료집XI</span>
-                                                </li>
-                                                <li>
-                                                    <span class="cate">관련연대</span>
-                                                    <span class="txt">2020년대</span>
-                                                </li>
-                                                <li>
-                                                    <span class="cate">생산자</span>
-                                                    <span class="txt">용인문화원부설 용인학연구소</span>
+                                                    <span class="txt">건축유적</span>
                                                 </li>
                                                 <li>
                                                     <span class="cate">시리즈</span>
-                                                    <span class="txt">서정3세대동인시 제02집</span>
+                                                    <span class="txt">용인시사총서 10</span>
                                                 </li>
+                                                <li>
+                                                    <span class="cate">자료요약</span>
+                                                    <span class="txt">용인시사총서10 용인 처인성 시굴조사 보고서. 용인시, 용인문화원, 용인시사편찬위원회, 충북 대학교 중원문화연구소가 함께 편찬함. 처인성 관련 기록과 시굴전의 상태를 서술하고 출토 유물 및 시굴의 성과와 전망 등 을 정리함.</span>
+                                                </li>
+                                                <li>
+                                                    <span class="cate">관련시대</span>
+                                                    <span class="txt">현대</span>
+                                                </li>
+                                                <li>
+                                                    <span class="cate">관련 연대</span>
+                                                    <span class="txt">2000년대</span>
+                                                </li>
+                                                <li>
+                                                    <span class="cate">지역</span>
+                                                    <span class="txt">용인시 처인구 남사읍</span>
+                                                </li>
+                                                <li>
+                                                    <span class="cate">생산일</span>
+                                                    <span class="txt">2002.09.30</span>
+                                                </li>
+                                                <li>
+                                                    <span class="cate">생산자</span>
+                                                    <span class="txt">용인시사편찬위원회</span>
+                                                </li>
+                                                <li>
+                                                    <span class="cate">키워드</span>
+                                                    <span class="txt">#용인#용인문화원#용인시사총서#처인성#시굴#조사#출토유물#성과#전망</span>
+                                                </li>
+
                                             </ul>
                                         </div>
 
@@ -139,69 +169,98 @@
 
                             <div class="board-detail__tabCon">
                                 <div class="board-detail__tabCon-inner">
-                                    <ul class="tab__list fake">
-                                        <li class="tab__item active">목차</li>
-                                        <li class="tab__item">PDF 보기</li>
-                                        <li class="tab__item">연계 항목 보기</li>
-                                        <li class="tab__item">연계 이미지 보기</li>
+                                    <ul class="tab__list fake" id="group1">
+                                        <li class="tab__item active" data-target="group1">목차</li>
+                                        <li class="tab__item" data-target="group2">PDF 보기</li>
+                                        <li class="tab__item" data-target="group3">연계 항목 보기</li>
+                                        <li class="tab__item" data-target="group4">연계 이미지 보기</li>
                                     </ul>
-
-                                    <div class="board-detail__view">
-                                        <div class="board-detail__view-inner">
-                                            <div class="board-detail__view-intro">
-                                                <p class="txt">
-                                                    용인의 이야기를 직접 들려주세요!<br>
-                                                    용인문화원에서는 시민의 기억을 통해 지역의 역사를 기록하는<br>
-                                                    구술채록 프로그램 「용인의 목소리」 참여자를 모집합니다.
-                                                </p>
+                                    <div class="board-layout board-layout--view">
+                                        <div class="board-detail">
+                                            <div class="board-detail__view">
+                                                <div class="board-detail__view-inner">
+                                                    <div class="board-detail__view-intro">
+                                                        <p class="txt">
+                                                            1p 김량천에 솟는 달<br>
+                                                            11p ❍ 차례<br>
+                                                            7p ❍ 발간축사<br>
+                                                            9p ❍ 책머리에<br>
+                                                            17p 임준규<br>
+                                                            19p 안개<br>
+                                                            21p 바람조1<br>
+                                                            22p 바람조2<br>
+                                                            23p 밤바다<br>
+                                                            24p 숲<br>
+                                                            25p 이종대<br>
+                                                            27p 김량천1<br>
+                                                            28p 김량천2<br>
+                                                            29p 김량천3<br>
+                                                            30p 김량천4<br>
+                                                            31p 김량천5<br>
+                                                            32p 용미리에서<br>
+                                                            33p 아이들에게8<br>
+                                                            34p 아이들에게9<br>
+                                                            35p 아이들에게 11<br>
+                                                            36p 동물원3<br>
+                                                            37p 동물원4<br>
+                                                            38p 내산리4<br>
+                                                            39p 겨울바다<br>
+                                                            40p 한계령
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <p class="mt-40">· 모집 기간: 2025.11.01 ~ 11.30<br>
-                                                · 참여 대상: 용인에 거주하거나 관련 경험이 있는 시민<br>
-                                                · 주요 내용: 구술 인터뷰 진행 및 디지털 기록 보존<br>
-                                                · 신청서 제출: archive@yic.or.kr
-                                            </p>
-                                            <p class="mt-40">· 문의: archive@yic.or.kr / 031-000-0000
-                                            </p>
-
-                                            <div class="img-wrap mt-50">
-                                                <span>
-                                                    <img src="../../resource/image/sub/notice-img.jpg">
-                                                </span>
-                                            </div>
-
                                         </div>
                                     </div>
-
-
-                                    <div class="tabCon-view">
-                                        1p 김량천에 솟는 달
-                                        11p ❍ 차례
-                                        7p ❍ 발간축사
-                                        9p ❍ 책머리에
-                                        17p 임준규
-                                        19p 안개
-                                        21p 바람조1
-                                        22p 바람조2
-                                        23p 밤바다
-                                        24p 숲
-                                        25p 이종대
-                                        27p 김량천1
-                                        28p 김량천2
-                                        29p 김량천3
-                                        30p 김량천4
-                                        31p 김량천5
-                                        32p 용미리에서
-                                        33p 아이들에게8
-                                        34p 아이들에게9
-                                        35p 아이들에게 11
-                                        36p 동물원3
-                                        37p 동물원4
-                                        38p 내산리4
-                                        39p 겨울바다
-                                        40p 한계령
+                                    <ul class="tab__list fake" id="group2">
+                                        <li class="tab__item" data-target="group1">목차</li>
+                                        <li class="tab__item active" data-target="group2">PDF 보기</li>
+                                        <li class="tab__item" data-target="group3">연계 항목 보기</li>
+                                        <li class="tab__item" data-target="group4">연계 이미지 보기</li>
+                                    </ul>
+                                    <div class="board-layout board-layout--view">
+                                        <div class="board-detail">
+                                            <div class="board-detail__view">
+                                                <div class="board-detail__view-inner">
+                                                    <div class="board-detail__view-intro">
+                                                        <p class="txt">
+                                                            1p 김량천에 솟는 달<br>
+                                                            11p ❍ 차례<br>
+                                                            7p ❍ 발간축사<br>
+                                                            9p ❍ 책머리에<br>
+                                                            17p 임준규<br>
+                                                            19p 안개<br>
+                                                            21p 바람조1<br>
+                                                            22p 바람조2<br>
+                                                            23p 밤바다<br>
+                                                            24p 숲<br>
+                                                            25p 이종대<br>
+                                                            27p 김량천1<br>
+                                                            28p 김량천2<br>
+                                                            29p 김량천3<br>
+                                                            30p 김량천4<br>
+                                                            31p 김량천5<br>
+                                                            32p 용미리에서<br>
+                                                            33p 아이들에게8<br>
+                                                            34p 아이들에게9<br>
+                                                            35p 아이들에게 11<br>
+                                                            36p 동물원3<br>
+                                                            37p 동물원4<br>
+                                                            38p 내산리4<br>
+                                                            39p 겨울바다<br>
+                                                            40p 한계령
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-
-
+                                    <ul class="tab__list fake" id="group3">
+                                        <li class="tab__item" data-target="group1">목차</li>
+                                        <li class="tab__item" data-target="group2">PDF 보기</li>
+                                        <li class="tab__item active" data-target="group3">연계 항목 보기</li>
+                                        <li class="tab__item" data-target="group4">연계 이미지 보기</li>
+                                    </ul>
                                     <div class="board-layout board-layout--list">
                                         <div class="sch-wrap">
                                             <div class="count-wrap">
@@ -432,6 +491,243 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <ul class="tab__list fake" id="group4">
+                                        <li class="tab__item" data-target="group1">목차</li>
+                                        <li class="tab__item" data-target="group2">PDF 보기</li>
+                                        <li class="tab__item" data-target="group3">연계 항목 보기</li>
+                                        <li class="tab__item active" data-target="group4">연계 이미지 보기</li>
+                                    </ul>
+                                    <div class="board-layout board-layout--list">
+                                        <div class="sch-wrap">
+                                            <div class="count-wrap">
+                                                <p class="count-all">전체<span>24</span>건</p>
+                                            </div>
+                                            <div class="sch-form">
+                                                <div class="custom-select">
+                                                    <div class="select-selected">전체</div>
+                                                    <div class="select-items-wrapper">
+                                                        <div class="select-items">
+                                                            <div data-value="option1">전체</div>
+                                                            <div data-value="option2">제목</div>
+                                                            <div data-value="option3">내용</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sch-bar sub">
+                                                    <input type="text" class="sch-input" placeholder="검색어를 입력해주세요">
+                                                    <button class="sch-btn">검색</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="board-layout__table">
+                                            <div class="board-table__inner">
+                                                <table>
+                                                    <caption>공지사항 리스트</caption>
+                                                    <colgroup>
+                                                        <col style="width:8rem">
+                                                        </col>
+                                                        <col style="width:auto">
+                                                        </col>
+                                                        <col style="width:18rem">
+                                                        </col>
+                                                        <col style="width:14rem">
+                                                        </col>
+                                                        <col style="width:10rem">
+                                                        </col>
+                                                    </colgroup>
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col" class="num">번호</th>
+                                                            <th scope="col" class="subject cat">제목</th>
+                                                            <th scope="col" class="date">작성일</th>
+                                                            <th scope="col" class="file">첨부파일</th>
+                                                            <th scope="col" class="view">조회수</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="notice">
+                                                            <td><span class="txt">공지</span></td>
+                                                            <td class="td-title">
+                                                                <a href="../../sub/about/notice-view.html"
+                                                                    class="td-titlelink">제21회 포은문화제 「전국청소년국악경연대회 」수상자
+                                                                    발표</a>
+                                                            </td>
+                                                            <td>2025-10-30</td>
+                                                            <td>
+                                                                <span class="down-icon"><img
+                                                                        src="../../resource/image/sub/notice-down-icon.svg"></span>
+                                                            </td>
+                                                            <td>248</td>
+                                                        </tr>
+                                                        <tr class="notice">
+                                                            <td><span class="txt">공지</span></td>
+                                                            <td class="td-title">
+                                                                <a href="../../sub/about/notice-view.html"
+                                                                    class="td-titlelink">[Let’s Go! 사일런스 댄스투어] 사전접수 안내
+                                                                    용인문화원</a>
+                                                            </td>
+                                                            <td>2025-10-30</td>
+                                                            <td>
+                                                                <span class="down-icon"><img
+                                                                        src="../../resource/image/sub/notice-down-icon.svg"></span>
+                                                            </td>
+                                                            <td>114</td>
+                                                        </tr>
+                                                        <tr>
+                                                        <tr>
+                                                            <td>10</td>
+                                                            <td class="td-title">
+                                                                <a href="javascript:void(0)" class="td-titlelink">제21회
+                                                                    포은문화제 프로그램 참가자 사전 접수 안내 2</a>
+                                                            </td>
+                                                            <td>2025-10-29</td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td>678</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>9</td>
+                                                            <td class="td-title">
+                                                                <a href="javascript:void(0)" class="td-titlelink">제21회
+                                                                    포은문화제 프로그램 참가자 사전 접수 안내 1</a>
+                                                            </td>
+                                                            <td>2025-10-29</td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td>75</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>8</td>
+                                                            <td class="td-title">
+                                                                <a href="javascript:void(0)" class="td-titlelink">용인문화원,
+                                                                    제18회 대한민국문화원상 프로그램 부문 &lsquo;우수상&rsquo; 수상</a>
+                                                                항만계획 필요성에 대해서 확인하는 2025-10-28
+                                                            </td>
+                                                            <td>2024-06-24</td>
+                                                            <td>
+                                                                <span class="down-icon"><img
+                                                                        src="../../resource/image/sub/notice-down-icon.svg"></span>
+                                                            </td>
+                                                            <td>87</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>7</td>
+                                                            <td class="td-title">
+                                                                <a href="javascript:void(0)" class="td-titlelink">제21회
+                                                                    포은문화제 사전프로그램1 &ldquo;충절에서 공존으로, 포은을 통해 오늘을
+                                                                    읽다&rdquo;</a>
+                                                            </td>
+                                                            <td>2025-10-27</td>
+                                                            <td>
+                                                                <span class="down-icon"><img
+                                                                        src="../../resource/image/sub/notice-down-icon.svg"></span>
+                                                            </td>
+                                                            <td>28</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>6</td>
+                                                            <td class="td-title">
+                                                                <a href="javascript:void(0)" class="td-titlelink">2025년
+                                                                    용인시민문화대학 신규강좌 강사모집 서류 합격자 공고</a>
+                                                            </td>
+                                                            <td>2025-10-27</td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td>46</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>5</td>
+                                                            <td class="td-title">
+                                                                <a href="javascript:void(0)" class="td-titlelink">제20회
+                                                                    포은문화제 전국청소년국악경연대회 수상자 발표</a>
+                                                            </td>
+                                                            <td>2025-10-25</td>
+                                                            <td>
+                                                                <span class="down-icon"><img
+                                                                        src="../../resource/image/sub/notice-down-icon.svg"></span>
+                                                            </td>
+                                                            <td>16</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>4</td>
+                                                            <td class="td-title">
+                                                                <a href="javascript:void(0)" class="td-titlelink">제34화
+                                                                    처인성문화제 프로그램 참가자 사전 접수 안내</a>
+                                                            <td>2023-09-24</td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td>175</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3</td>
+                                                            <td class="td-title">
+                                                                <a href="javascript:void(0)" class="td-titlelink">2025년
+                                                                    용인시 청소년 전통놀이 지원사업 선정 결과 공고</a>
+                                                            </td>
+                                                            <td>2025-10-21</td>
+                                                            <td>
+                                                                <span class="down-icon"><img
+                                                                        src="../../resource/image/sub/notice-down-icon.svg"></span>
+                                                            </td>
+                                                            <td>235</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td class="td-title">
+                                                                <a href="javascript:void(0)" class="td-titlelink">2025
+                                                                    용인문화원 서포터즈 &lsquo;문짝&rsquo; 2기 양성 과정 참가자 공고</a>
+                                                            </td>
+                                                            <td>2025-10-21</td>
+                                                            <td>
+                                                                <span class="down-icon"><img
+                                                                        src="../../resource/image/sub/notice-down-icon.svg"></span>
+                                                            </td>
+                                                            <td>89</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td class="td-title">
+                                                                <a href="javascript:void(0)" class="td-titlelink">2025년
+                                                                    용인시민문화대학 신규강좌 강사모집 최종합격자 공고</a>
+                                                            </td>
+                                                            <td>2025-10-20</td>
+                                                            <td>
+
+                                                            </td>
+                                                            <td>99</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                        <div class="pagination-wrap">
+                                            <div class="pagination">
+                                                <!-- <a href="javascript:void(0)" class="link-move link-first"></a> -->
+                                                <a href="javascript:void(0)" class="link-move link-prev">이전</a>
+
+                                                <a href="javascript:void(0)" class="on">1</a>
+                                                <a href="javascript:void(0)">2</a>
+                                                <a href="javascript:void(0)">3</a>
+                                                <a href="javascript:void(0)">4</a>
+                                                <a href="javascript:void(0)">5</a>
+                                                <a href="javascript:void(0)">6</a>
+                                                <a href="javascript:void(0)">7</a>
+                                                <a href="javascript:void(0)">8</a>
+                                                <a href="javascript:void(0)">···</a>
+                                                <a href="javascript:void(0)">99</a>
+
+                                                <a href="javascript:void(0)" class="link-move link-next">다음</a>
+                                                <!-- <a href="javascript:void(0)" class="link-move link-last"></a> -->
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

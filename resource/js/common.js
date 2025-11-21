@@ -422,6 +422,10 @@ function tabMenu() {
 
     tabItems.forEach(item => {
         item.addEventListener('click', () => {
+
+            // 🚫 부모 .tab__list에 fake 클래스가 있으면 작동하지 않음
+            if (item.closest('.tab__list')?.classList.contains('fake')) return;
+
             const target = item.getAttribute('data-tab');
 
             // 모든 탭 초기화
@@ -430,9 +434,64 @@ function tabMenu() {
 
             // 클릭된 탭만 활성화
             item.classList.add('active');
-            document.getElementById(target).classList.add('active');
+
+            // data-tab이 있는 경우에만 콘텐츠 활성화
+            if (target && document.getElementById(target)) {
+                document.getElementById(target).classList.add('active');
+            }
         });
     });
+
+    function smoothScrollTo(targetElement, duration = 500) {
+        const container = document.scrollingElement || document.documentElement;
+        const start = container.scrollTop;
+        const end = targetElement.getBoundingClientRect().top + start;
+        const change = end - start;
+        let currentTime = 0;
+        const increment = 20;
+
+        function animateScroll() {
+            currentTime += increment;
+            const val = easeInOutQuad(currentTime, start, change, duration);
+            container.scrollTop = val;
+            if (currentTime < duration) {
+                requestAnimationFrame(animateScroll);
+            }
+        }
+
+        animateScroll();
+    }
+
+    // 부드러운 스크롤 easing 함수
+    function easeInOutQuad(t, b, c, d) {
+        t /= d/2;
+        if (t < 1) return c/2*t*t + b;
+        t--;
+        return -c/2 * (t*(t-2) - 1) + b;
+    }
+
+    // 탭 클릭 이벤트
+    const allTabs = document.querySelectorAll('.tab__item[data-target]');
+
+    allTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetId = tab.dataset.target;
+            if (!targetId) return;
+
+            const targetGroup = document.getElementById(targetId);
+            if (!targetGroup) return;
+
+            const activeTab = targetGroup.querySelector('.tab__item.active');
+            if (!activeTab) return;
+
+            // JS로 직접 부드럽게 스크롤
+            smoothScrollTo(activeTab, 500);
+        });
+    });
+
+
+
+
 
 }
 
@@ -515,6 +574,8 @@ function searchSection() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const selectedContainer = document.querySelector('.selected-filter__items');
     const resetBtn = document.querySelector('.reset-btn');
+    const filterToggleBtn = document.querySelector('.filter-toggle-btn');
+    const filterPanel = document.querySelector('.filter-panel');
 
     // 선택된 값 저장
     let selectedFilters = [];
@@ -522,8 +583,7 @@ function searchSection() {
     // 1️⃣ 필터 버튼 클릭
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            const value = btn.dataset.value; // 반드시 data-value 속성 사용
-
+            const value = btn.dataset.value;
             if (!value) return; // 안전 장치
 
             if (btn.classList.contains('active')) {
@@ -548,7 +608,6 @@ function searchSection() {
     function removeFilterTag(value) {
         selectedFilters = selectedFilters.filter(item => item !== value);
 
-        // 버튼 active 제거
         const btn = document.querySelector(`.filter-btn[data-value="${value}"]`);
         if (btn) btn.classList.remove('active');
 
@@ -557,42 +616,44 @@ function searchSection() {
 
     // 4️⃣ selected-tag 렌더링
     function renderTags() {
+        if (!selectedContainer) return; // 요소 없으면 렌더 자체를 막음
         selectedContainer.innerHTML = '';
 
         selectedFilters.forEach(value => {
             const tag = document.createElement('span');
             tag.className = 'selected-tag';
-            // 안전하게 value 넣기
             tag.innerHTML = `${value} <button class="tag-remove" data-value="${value}"></button>`;
             selectedContainer.appendChild(tag);
         });
     }
 
-    // 5️⃣ 태그 X 버튼 클릭
-    selectedContainer.addEventListener('click', e => {
-        const target = e.target;
-        if (target.classList.contains('tag-remove')) {
-            const value = target.dataset.value;
-            if (!value) return; // 안전 장치
-            removeFilterTag(value);
-        }
-    });
+    // 5️⃣ 태그 X 버튼 클릭 (선택 영역이 있는 경우에만 실행)
+    if (selectedContainer) {
+        selectedContainer.addEventListener('click', e => {
+            const target = e.target;
+            if (target.classList.contains('tag-remove')) {
+                const value = target.dataset.value;
+                if (!value) return;
+                removeFilterTag(value);
+            }
+        });
+    }
 
-    // 6️⃣ 초기화 버튼
-    resetBtn.addEventListener('click', () => {
-        selectedFilters = [];
-        document.querySelectorAll('.filter-btn.active').forEach(btn => btn.classList.remove('active'));
-        renderTags();
-    });
+    // 6️⃣ 초기화 버튼 (있을 때만 실행)
+    if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+            selectedFilters = [];
+            document.querySelectorAll('.filter-btn.active').forEach(btn => btn.classList.remove('active'));
+            renderTags();
+        });
+    }
 
+    // 7️⃣ 필터 패널 토글 버튼 (있을 때만 실행)
+    if (filterToggleBtn && filterPanel) {
+        filterToggleBtn.addEventListener('click', () => {
+            filterPanel.classList.toggle('is-hidden');
+        });
+    }
 
-
-    //////////////////////////
-    const filterToggleBtn = document.querySelector('.filter-toggle-btn');
-    const filterPanel = document.querySelector('.filter-panel');
-
-    filterToggleBtn.addEventListener('click', () => {
-        filterPanel.classList.toggle('is-hidden');
-    });
 
 }
