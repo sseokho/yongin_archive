@@ -1,10 +1,10 @@
 @charset "UTF-8";
-/** element */
 @import '../css/font.css';
 @import '../css/simpleBar.css';
 @import '../css/swiper.min.css';
 @import '../css/layout.css';
 @import '../css/components.css';
+/** element */
 /* reset */
 html {
   font-size: 62.5%;

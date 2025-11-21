@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import 'base';
+@use "base" as *;
 
 #skipNavigation {
     position: absolute;
@@ -137,7 +137,7 @@
 
 			// 포커스
 			&:has(input:focus){
-				border-color: #7D03FF;
+				border-color: $brand-point;
 				background: #fff;
 				.sch-input{
 					color: #05020F;
@@ -213,7 +213,7 @@
 
 					@media (min-width:1025px) {
 						&:hover{
-							background: #7D03FF;
+							background: $brand-point;
 						}
 					}
                 }
@@ -1263,7 +1263,7 @@
             >span {
                 margin-left: 0.4rem;
                 display: inline-block;
-                @include font(1.7, 600, #7D03FF);
+                @include font(1.7, 600, $brand-point);
                 font-weight: bold;
             }
         }
@@ -2731,7 +2731,7 @@ section {
                 @include font(1.8, 600, #05020F);
 
                 .current {
-                    @include font(1.8, 600, #7D03FF)
+                    @include font(1.8, 600, $brand-point)
                 }
             }
         }

@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+@use "bar" as *;
+
 /** element */
 @import '../css/font.css';
 @import '../css/simpleBar.css';
