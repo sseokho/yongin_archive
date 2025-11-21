@@ -78,6 +78,17 @@
 .mainVisual {
     position: relative;
     height: 82rem;
+	background: #fff; /* 마스킹 색상 */
+	clip-path: circle(0% at 50% 10%);
+	animation: reveal 1.25s ease-out forwards;
+	@keyframes reveal {
+		0% {
+			clip-path: circle(0% at 50% 10%);
+		}
+		100% {
+			clip-path: circle(120% at 50% 10%);
+		}
+	}
 
     .img-wrap {
         display: block;

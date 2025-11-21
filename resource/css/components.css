@@ -1690,6 +1690,26 @@ body .f_medium {
 .mainVisual {
   position: relative;
   height: 82rem;
+  background: #fff; /* 마스킹 색상 */
+  clip-path: circle(0% at 50% 10%);
+  -webkit-animation: reveal 1.25s ease-out forwards;
+          animation: reveal 1.25s ease-out forwards;
+}
+@-webkit-keyframes reveal {
+  0% {
+    clip-path: circle(0% at 50% 10%);
+  }
+  100% {
+    clip-path: circle(120% at 50% 10%);
+  }
+}
+@keyframes reveal {
+  0% {
+    clip-path: circle(0% at 50% 10%);
+  }
+  100% {
+    clip-path: circle(120% at 50% 10%);
+  }
 }
 .mainVisual .img-wrap {
   display: block;
