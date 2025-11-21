@@ -1729,17 +1729,18 @@ body .f_medium {
   text-align: center;
 }
 .mainVisual .txt-wrap .txt {
+  margin-top: 0.8rem;
   font-family: "GyeonggiBatang";
   font-size: 6.4rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #fff;
-  line-height: 150%;
+  line-height: 140%;
   text-align: center;
 }
 .mainVisual .info-area {
   position: absolute;
   left: 50%;
-  top: 18.6rem;
+  top: 24rem;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   width: 130rem;
@@ -1754,14 +1755,41 @@ body .f_medium {
           box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(4px);
   height: 7.8rem;
-  margin-top: 8.7rem;
+  margin-top: 6.4rem;
+}
+.mainVisual .info-area .sch-bar:has(input:focus) {
+  border-color: #7D03FF;
+  background: #fff;
+}
+.mainVisual .info-area .sch-bar:has(input:focus) .sch-input {
+  color: #05020F;
+  outline: none;
+}
+.mainVisual .info-area .sch-bar:has(input:focus) .sch-input::-webkit-input-placeholder {
+  color: #05020F;
+}
+.mainVisual .info-area .sch-bar:has(input:focus) .sch-input::-moz-placeholder {
+  color: #05020F;
+}
+.mainVisual .info-area .sch-bar:has(input:focus) .sch-input:-ms-input-placeholder {
+  color: #05020F;
+}
+.mainVisual .info-area .sch-bar:has(input:focus) .sch-input::-ms-input-placeholder {
+  color: #05020F;
+}
+.mainVisual .info-area .sch-bar:has(input:focus) .sch-input::placeholder {
+  color: #05020F;
+}
+.mainVisual .info-area .sch-bar:has(input:focus) .sch-btn {
+  -webkit-filter: invert(1);
+          filter: invert(1);
 }
 .mainVisual .info-area .sch-input {
   width: 100%;
   font-size: 2rem;
   font-weight: 500;
   color: #fff;
-  padding-left: 4rem;
+  padding-left: 3.7rem;
   padding-right: 10rem;
 }
 .mainVisual .info-area .sch-input::-webkit-input-placeholder {
@@ -1806,14 +1834,17 @@ body .f_medium {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 0 auto;
+  padding-left: 4rem;
 }
 .mainVisual .tag-wrap .tit {
   font-size: 1.8rem;
   font-weight: 700;
   color: #fff;
+  width: 7.7rem;
   margin-right: 2.4rem;
 }
 .mainVisual .tag-wrap .tags {
@@ -1827,7 +1858,10 @@ body .f_medium {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   gap: 0.6rem;
+  max-width: calc(100% - 10.1rem);
 }
 .mainVisual .tag-wrap .tags li {
   display: -webkit-box;
@@ -1845,7 +1879,14 @@ body .f_medium {
   font-weight: 500;
   color: #fff;
   line-height: 160%;
-  padding: 0 1.6rem;
+  padding: 0.6rem 1.6rem;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+@media (min-width: 1025px) {
+  .mainVisual .tag-wrap .tags li a:hover {
+    background: #7D03FF;
+  }
 }
 
 .header.active .navi-bg {
@@ -1952,13 +1993,13 @@ body .f_medium {
   transition: all 0.4s;
 }
 .nav .navWrap:has(.active) .depth_1 > li {
-  width: 18.4rem;
+  width: 22.4rem;
 }
 .nav .navWrap:has(.active) .depth_1 > li.active .depth_2 > li {
-  min-width: 18.4rem;
+  min-width: 22.4rem;
 }
 .nav .navWrap .depth_1 > li {
-  width: 13.2rem;
+  width: 17.2rem;
   height: 100%;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -2016,7 +2057,7 @@ body .f_medium {
       justify-content: space-around;
   overflow: hidden;
   position: relative;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #fff;
 }
@@ -2066,8 +2107,8 @@ body .f_medium {
 }
 .header-logo .logo a {
   display: block;
-  width: 13rem;
-  height: 4.1rem;
+  width: 18.4rem;
+  height: 4.6rem;
 }
 .header-logo .logo img {
   width: 100%;
@@ -2082,7 +2123,7 @@ body .f_medium {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: calc(100% - 55.8rem);
+  width: calc(100% - 53.8rem);
   margin-left: auto;
 }
 .header-btn_wrap .ham {
@@ -2268,7 +2309,7 @@ body .f_medium {
   margin: 0 auto;
 }
 .sch-bar + .tag-wrap {
-  margin-top: 3.8rem;
+  margin-top: 3.2rem;
 }
 .sch-bar .sch-input {
   background: transparent;
@@ -2288,6 +2329,8 @@ body .f_medium {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 100%;
+  max-width: 92rem;
 }
 .tag-wrap .tags {
   text-align: center;

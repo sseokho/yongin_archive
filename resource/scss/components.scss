@@ -109,9 +109,10 @@
         }
 
         .txt {
+			margin-top: .8rem;
             font-family: 'GyeonggiBatang';
-            @include font(6.4, 600, #fff);
-            line-height: 150%;
+            @include font(6.4, 700, #fff);
+            line-height: 140%;
             text-align: center;
         }
     }
@@ -119,7 +120,7 @@
     .info-area {
         position: absolute;
         left: 50%;
-        top: 18.6rem;
+        top: 24rem;
         transform: translateX(-50%);
         width: 130rem;
 
@@ -132,13 +133,29 @@
             box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
             backdrop-filter: blur(4px);
             height: 7.8rem;
-            margin-top: 8.7rem;
+            margin-top: 6.4rem;
+
+			// 포커스
+			&:has(input:focus){
+				border-color: #7D03FF;
+				background: #fff;
+				.sch-input{
+					color: #05020F;
+					outline: none;
+					&::placeholder{
+						color: #05020F;
+					}
+				}
+				.sch-btn{
+					filter: invert(1);
+				}
+			}
         }
 
         .sch-input {
             width: 100%;
             @include font(2, 500, #fff);
-            padding-left: 4rem;
+            padding-left: 3.7rem;
             padding-right: 10rem;
 
             &::placeholder {
@@ -160,10 +177,13 @@
     .tag-wrap {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+		margin: 0 auto;
+		padding-left: 4rem;
 
         .tit {
             @include font(1.8, 700, #fff);
+			width: 7.7rem;
             margin-right: 2.4rem;
         }
 
@@ -172,7 +192,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
+			flex-wrap: wrap;
             gap: 0.6rem;
+			max-width: calc(100% - 10.1rem);
 
             li {
                 display: flex;
@@ -184,7 +206,14 @@
                     backdrop-filter: blur(2px);
                     @include font(1.8, 500, #fff);
                     line-height: 160%;
-                    padding: 0 1.6rem;
+                    padding: .6rem 1.6rem;
+					transition: all .2s ease;
+
+					@media (min-width:1025px) {
+						&:hover{
+							background: #7D03FF;
+						}
+					}
                 }
             }
         }
@@ -307,13 +336,13 @@
         &:has(.active) {
             .depth_1 {
                 >li {
-                    width: 18.4rem;
+                    width: 22.4rem;
 
                     &.active {
                         .depth_2 {
 
                             >li {
-                                min-width: 18.4rem;
+                                min-width: 22.4rem;
                             }
                         }
                     }
@@ -325,7 +354,7 @@
 
         .depth_1 {
             >li {
-                width: 13.2rem;
+                width: 17.2rem;
                 height: 100%;
                 transition: all 0.5s;
 
@@ -374,7 +403,7 @@
                     justify-content: space-around;
                     overflow: hidden;
                     position: relative;
-                    @include font(1.8, 700, #fff);
+                    @include font(2, 700, #fff);
                 }
 
             }
@@ -428,8 +457,8 @@
 
         a {
             display: block;
-            width: 13rem;
-            height: 4.1rem;
+            width: 18.4rem;
+            height: 4.6rem;
         }
 
         img {
@@ -443,7 +472,7 @@
 .header-btn_wrap {
     display: flex;
     justify-content: space-between;
-    width: calc(100% - 55.8rem);
+    width: calc(100% - 53.8rem);
     margin-left: auto;
 
     .ham {
@@ -675,7 +704,7 @@
     margin: 0 auto;
 
     &+.tag-wrap {
-        margin-top: 3.8rem;
+        margin-top: 3.2rem;
     }
 
     .sch-input {
@@ -691,6 +720,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+	width: 100%;
+	max-width: 92rem;
 
     .tags {
         text-align: center;
